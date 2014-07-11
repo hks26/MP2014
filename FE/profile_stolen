@@ -1,0 +1,147 @@
+<div class="scrollable basebalscroll mCustomScrollbar _mCS_16" style="overflow: hidden;"><div class="mCustomScrollBox mCS-light" id="mCSB_16" style="position: relative; height: 100%; overflow: hidden; max-width: 100%; max-height: 200px;"><div class="mCSB_container" style="position: relative; top: -439px;">
+    <div class="contactInfo">
+      <p class="title first"> Contact </p>
+      <div class="contactItems">
+        <div class="phone">
+          <p>Phone</p>
+          <script id="metamorph-567-start" type="text/x-placeholder"></script><script id="metamorph-567-end" type="text/x-placeholder"></script>
+        </div>
+        <div class="email">
+          <p>Email</p>
+          <script id="metamorph-569-start" type="text/x-placeholder"></script><script id="metamorph-568-start" type="text/x-placeholder"></script>
+          <h1>
+            <script id="metamorph-570-start" type="text/x-placeholder"></script>Primary<script id="metamorph-570-end" type="text/x-placeholder"></script><span><script id="metamorph-571-start" type="text/x-placeholder"></script>lab@spcapitaliq.com<script id="metamorph-571-end" type="text/x-placeholder"></script></span>
+          </h1>
+          <script id="metamorph-568-end" type="text/x-placeholder"></script><script id="metamorph-569-end" type="text/x-placeholder"></script>
+        </div>
+      </div>
+      <div class="contactItems">
+        <div class="address">
+          <p>Address</p>
+          <script id="metamorph-572-start" type="text/x-placeholder"></script><script id="metamorph-572-end" type="text/x-placeholder"></script>
+        </div>
+      </div>
+    </div>
+      
+    <div class="contactSkills" }}="">
+      <p class="title">
+        Skills <!--<a class="add-button" data-ember-action="508" alt="Add Assets" title="Add Assets"></a>-->
+      </p>
+      <div class="tag-cloud" data-name="tags">
+        <script id="metamorph-573-start" type="text/x-placeholder"></script>
+        <input type="text" id="skills">
+        <script id="metamorph-573-end" type="text/x-placeholder"></script>
+        <div class="cloud ui-selectable basebalscroll mCustomScrollbar _mCS_17"><div class="mCustomScrollBox mCS-light" id="mCSB_17" style="position:relative; height:100%; overflow:hidden; max-width:100%;"><div class="mCSB_container mCS_no_scrollbar" style="position: relative; top: 0px;">
+          <script id="metamorph-574-start" type="text/x-placeholder"></script><script id="metamorph-574-end" type="text/x-placeholder"></script>
+        </div><div class="mCSB_scrollTools" style="position: absolute; display: none;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position:relative;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+      </div>
+    </div>
+    <div class="contactTags">
+      <p class="title">Tags</p>
+      <div class="tag-cloud sm" data-name="tags">
+        <script id="metamorph-575-start" type="text/x-placeholder"></script>
+        <input type="text" id="tags">
+        <script id="metamorph-575-end" type="text/x-placeholder"></script>
+        <div class="cloud basebalscroll mCustomScrollbar _mCS_18 ui-selectable"><div class="mCustomScrollBox mCS-light" id="mCSB_18" style="position:relative; height:100%; overflow:hidden; max-width:100%;"><div class="mCSB_container mCS_no_scrollbar" style="position: relative; top: 0px;">
+          <script id="metamorph-576-start" type="text/x-placeholder"></script><script id="metamorph-576-end" type="text/x-placeholder"></script>
+        </div><div class="mCSB_scrollTools" style="position: absolute; display: none;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position:relative;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
+      </div>
+    </div>
+    <div class="contactNotes">
+      <p class="title">Notes</p>
+      <div class="notesInput">       
+        <textarea id="notes" class="ember-view ember-text-area notesText"></textarea>       
+      </div>
+    </div>
+    <div class="contactHistory">
+      <p class="title">Workspace History</p>
+      <div>
+        <section class="list-group my-workspace">
+          <script id="metamorph-577-start" type="text/x-placeholder"></script><script id="metamorph-597-start" type="text/x-placeholder"></script>      
+          <ul class="myWorkspace">
+            <script id="metamorph-619-start" type="text/x-placeholder"></script>Test Workspace_DL<script id="metamorph-619-end" type="text/x-placeholder"></script>
+            <li>
+              <script id="metamorph-620-start" type="text/x-placeholder"></script><script id="metamorph-620-end" type="text/x-placeholder"></script>
+              <script id="metamorph-621-start" type="text/x-placeholder"></script><script id="metamorph-621-end" type="text/x-placeholder"></script>
+              <script id="metamorph-622-start" type="text/x-placeholder"></script>
+              <span class="workspaceIconMedium shared-workspace asset-image"></span>
+              <script id="metamorph-622-end" type="text/x-placeholder"></script>
+              <p>
+                <script id="metamorph-623-start" type="text/x-placeholder"></script>
+                Status: Active<br>
+                Created By: <script id="metamorph-624-start" type="text/x-placeholder"></script>D. Langley<script id="metamorph-624-end" type="text/x-placeholder"></script><br>
+                Deadline: <script id="metamorph-625-start" type="text/x-placeholder"></script>Jul-12-2014<script id="metamorph-625-end" type="text/x-placeholder"></script><br>
+                <script id="metamorph-623-end" type="text/x-placeholder"></script>
+                Modified: <script id="metamorph-626-start" type="text/x-placeholder"></script>Jun-16-2014<script id="metamorph-626-end" type="text/x-placeholder"></script><br>
+                <script id="metamorph-627-start" type="text/x-placeholder"></script>
+                Team: <script id="metamorph-628-start" type="text/x-placeholder"></script>I. Lab2, D. Langley, B. Pons-Morale...<script id="metamorph-628-end" type="text/x-placeholder"></script><br>
+                <script id="metamorph-627-end" type="text/x-placeholder"></script>
+              </p>
+            </li>
+          </ul>         
+          <script id="metamorph-597-end" type="text/x-placeholder"></script><script id="metamorph-598-start" type="text/x-placeholder"></script>      
+          <ul class="myWorkspace">
+            <script id="metamorph-629-start" type="text/x-placeholder"></script>Investment Working Group<script id="metamorph-629-end" type="text/x-placeholder"></script>
+            <li>
+              <script id="metamorph-630-start" type="text/x-placeholder"></script><script id="metamorph-630-end" type="text/x-placeholder"></script>
+              <script id="metamorph-631-start" type="text/x-placeholder"></script><script id="metamorph-631-end" type="text/x-placeholder"></script>
+              <script id="metamorph-632-start" type="text/x-placeholder"></script>
+              <span class="workspaceIconMedium shared-workspace asset-image"></span>
+              <script id="metamorph-632-end" type="text/x-placeholder"></script>
+              <p>
+                <script id="metamorph-633-start" type="text/x-placeholder"></script>
+                Status: Active<br>
+                Created By: <script id="metamorph-634-start" type="text/x-placeholder"></script>L. Eccleston<script id="metamorph-634-end" type="text/x-placeholder"></script><br>
+                Deadline: <script id="metamorph-635-start" type="text/x-placeholder"></script>Jun-19-2014<script id="metamorph-635-end" type="text/x-placeholder"></script><br>
+                <script id="metamorph-633-end" type="text/x-placeholder"></script>
+                Modified: <script id="metamorph-636-start" type="text/x-placeholder"></script>Jul-09-2014<script id="metamorph-636-end" type="text/x-placeholder"></script><br>
+                <script id="metamorph-637-start" type="text/x-placeholder"></script>
+                Team: <script id="metamorph-638-start" type="text/x-placeholder"></script>J. Anderson, M. Bogdziewicz, R. Cha...<script id="metamorph-638-end" type="text/x-placeholder"></script><br>
+                <script id="metamorph-637-end" type="text/x-placeholder"></script>
+              </p>
+            </li>
+          </ul>         
+          <script id="metamorph-598-end" type="text/x-placeholder"></script><script id="metamorph-599-start" type="text/x-placeholder"></script>      
+          <ul class="myWorkspace">
+            <script id="metamorph-639-start" type="text/x-placeholder"></script>Test 6-9-14<script id="metamorph-639-end" type="text/x-placeholder"></script>
+            <li>
+              <script id="metamorph-640-start" type="text/x-placeholder"></script><script id="metamorph-640-end" type="text/x-placeholder"></script>
+              <script id="metamorph-641-start" type="text/x-placeholder"></script><script id="metamorph-641-end" type="text/x-placeholder"></script>
+              <script id="metamorph-642-start" type="text/x-placeholder"></script>
+              <span class="workspaceIconMedium shared-workspace asset-image"></span>
+              <script id="metamorph-642-end" type="text/x-placeholder"></script>
+              <p>
+                <script id="metamorph-643-start" type="text/x-placeholder"></script>
+                Status: Active<br>
+                Created By: <script id="metamorph-644-start" type="text/x-placeholder"></script>I. Lab2<script id="metamorph-644-end" type="text/x-placeholder"></script><br>
+                Deadline: <script id="metamorph-645-start" type="text/x-placeholder"></script>Jun-14-2014<script id="metamorph-645-end" type="text/x-placeholder"></script><br>
+                <script id="metamorph-643-end" type="text/x-placeholder"></script>
+                Modified: <script id="metamorph-646-start" type="text/x-placeholder"></script>Jun-09-2014<script id="metamorph-646-end" type="text/x-placeholder"></script><br>
+                <script id="metamorph-647-start" type="text/x-placeholder"></script>
+                Team: <script id="metamorph-648-start" type="text/x-placeholder"></script>B. Connolly, I. Lab1, I. Lab2...<script id="metamorph-648-end" type="text/x-placeholder"></script><br>
+                <script id="metamorph-647-end" type="text/x-placeholder"></script>
+              </p>
+            </li>
+          </ul>         
+          <script id="metamorph-599-end" type="text/x-placeholder"></script><script id="metamorph-600-start" type="text/x-placeholder"></script>      
+          <ul class="myWorkspace">
+            <script id="metamorph-649-start" type="text/x-placeholder"></script>My Workspace<script id="metamorph-649-end" type="text/x-placeholder"></script>
+            <li>
+              <script id="metamorph-650-start" type="text/x-placeholder"></script>
+              <span class="workspaceIconMedium my-workspace asset-image"></span>
+              <script id="metamorph-650-end" type="text/x-placeholder"></script>
+              <script id="metamorph-651-start" type="text/x-placeholder"></script><script id="metamorph-651-end" type="text/x-placeholder"></script>
+              <script id="metamorph-652-start" type="text/x-placeholder"></script><script id="metamorph-652-end" type="text/x-placeholder"></script>
+              <p>
+                <script id="metamorph-653-start" type="text/x-placeholder"></script><script id="metamorph-653-end" type="text/x-placeholder"></script>
+                Modified: <script id="metamorph-654-start" type="text/x-placeholder"></script>Jul-11-2014<script id="metamorph-654-end" type="text/x-placeholder"></script><br>
+                <script id="metamorph-655-start" type="text/x-placeholder"></script><script id="metamorph-655-end" type="text/x-placeholder"></script>
+              </p>
+            </li>
+          </ul>         
+          <script id="metamorph-600-end" type="text/x-placeholder"></script><script id="metamorph-577-end" type="text/x-placeholder"></script>
+        </section>
+
+      </div>
+    </div>
+  </div><div class="mCSB_scrollTools" style="position: absolute; display: block;"><div class="mCSB_draggerContainer"><div class="mCSB_dragger" style="position: absolute; top: 116px; height: 53px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="position: relative; line-height: 53px;"></div></div><div class="mCSB_draggerRail"></div></div></div></div></div>
