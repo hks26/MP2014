@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" href="css/toplayer.css">  
 </head>
 <body>
   <script type="text/x-handlebars">
@@ -15,65 +16,75 @@
     {{outlet}}
   </script>
 
-  <script type="text/x-handlebars" id="index">
+  <script type="text/x-handlebars" class="index">
     <ul>
     {{#each item in model}}
       <li>{{item}}</li>
     {{/each}}
     </ul>
   </script>
-  <div id="container-fluid">
-    <div id="row-fluid">
-    <div id="col-md-5 col-md-offset-1">
+  <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-5 col-md-offset-1">
       <--> Image goes here </-->
     </div>
-    <div id="col-md-16 col-md-offset-1">
-      <div id="row-fluid">
-      <h1> User Name</h1>
+    <div class="col-md-16 col-md-offset-1">
+      <div class="row">
+      <h1 class="ciqred"> User Name</h1>
       </div>
-      <div id ="row-fluid">
+      <div class ="row">
       <h3> Job Title, Company (Division)</h3>
       <hr> 
       </div>
-      <div id ="row-fluid">
-      <div id ="col-md-12">
-        Phone:
+      <div class ="row">
+      <div class ="col-md-12">
+      Phone: 
+        <div class="pull-right">   405-334-6714
+        </div> 
       </div>
-      <div id ="col-md-12">
-        Address:
+      <div class ="col-md-12">
+        Address: 
+        <div class="pull-right"> 943 Pacific St, NY, NY
+        </div>
       </div>
       </div>
-      <div id="row-fluid">
-        Email
+      <div class="row">
+      <div class="col-md-12">
+        Primary Email:
+        <div class="pull-right">francescoA@spcapitaliq.com
+        </div>
       </div>
-      <div id="row-fluid">
-      <div id="col-md-12">
-        Primary: francescoA@spcapitaliq.com
+      <div class="col-md-12">
+        Secondary Email: 
+      <div class="pull-right">
+      asgawertasdf@gmail.com
       </div>
-      <div id="col-md-12">
-        Secondary: asgawertasdf@gmail.com
       </div>
         <hr>
       </div>
-      <div id="row-fluid">
-        <div id="col-md-10">
+      <div class="row">
+        <div class="col-md-10">
         <div class="form-group">
           <label for="inputTags">Tags</label>
-          <input type="email" class="form-control" id="inputTags" placeholder="Enter tags">
+          <input type="email" class="form-control inputTags" placeholder="Enter tags">
         </div> 
         </div>
-        <div id="col-md-14">
+        <div class="col-md-14">
           <div class="form-group">
           <label for="inputNotes">Notes</label>
-          <input type="email" class="form-control" id="inputNotes" placeholder="Enter notes">
+          <input type="email" class="form-control inputNotes" placeholder="Enter notes">
         </div> 
         </div>
-      </div>
-      
-      
+      </div>   
     </div>
       
       
+    </div>
+    <div class="row">
+      asdfasdfwga
+    </div>
+    <div class="row">
+      asdfasdfwga
     </div>
   </div>
   <script src="js/libs/jquery-1.10.2.js"></script>
