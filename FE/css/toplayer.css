@@ -10,3 +10,12 @@ background-color: #CBCBCB;
 .inputNotes{
 background-color: #CBCBCB;
 }
+
+@font-face{
+	font-family: 'Geogrotesque';
+	src: URL("../fonts/Geogrotesque/geogtq-md.otf") format("opentype");
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Geogrotesque';
+}
