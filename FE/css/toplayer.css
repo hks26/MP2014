@@ -11,6 +11,11 @@ background-color: #CBCBCB;
 background-color: #CBCBCB;
 }
 
+body {
+	margin: 0px;
+
+}
+
 @font-face{
 	font-family: 'Geogrotesque';
 	src: URL("../fonts/Geogrotesque/geogtq-md.otf") format("opentype");
