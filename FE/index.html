@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
-  <link rel="stylesheet" href="css/toplayer.css">  
+  <link rel="stylesheet" href="bootstrap-vertical-tabs/bootstrap.vertical-tabs.css">
+  <link rel="stylesheet" href="css/toplayer.css">
 </head>
 <body>
 
@@ -77,8 +78,29 @@
 
 
   <script type="text/x-handlebars" data-template-name="index">
-  
+    <div class="row">
+      <div  class="col-md-6">
+        <div class="col-md-9">
+            <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane active" id="home-r">Home Tab.</div>
+            <div class="tab-pane" id="profile-r">Profile Tab.</div>
+            <div class="tab-pane" id="messages-r">Messages Tab.</div>
+            <div class="tab-pane" id="settings-r">Settings Tab.</div>
+          </div>
+        </div>
 
+        <div class="col-md-3"> <!-- required for floating -->
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs tabs-right">
+            <li class="active"><a href="#home-r" data-toggle="tab">Home</a></li>
+            <li><a href="#profile-r" data-toggle="tab">Profile</a></li>
+            <li><a href="#messages-r" data-toggle="tab">Messages</a></li>
+            <li><a href="#settings-r" data-toggle="tab">Settings</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </script>
 
 
