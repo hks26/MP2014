@@ -11,9 +11,13 @@ background-color: #CBCBCB;
 background-color: #CBCBCB;
 }
 
+div#topbar {
+	height: 52px;
+
+}
+
 body {
 	margin: 0px;
-
 }
 
 @font-face{
@@ -23,4 +27,23 @@ body {
 
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Geogrotesque';
+}
+
+#powerbar {
+	background-color: #1f2121;
+	-webkit-box-shadow: -1px 0 rgba(0,0,0,.75),inset 1px 0 rgba(255,255,255,.1),inset -1px 0 rgba(255,255,255,.1);
+	-moz-box-shadow: -1px 0 rgba(0,0,0,.75),inset 1px 0 rgba(255,255,255,.1),inset -1px 0 rgba(255,255,255,.1);
+	box-shadow: -1px 0 rgba(0,0,0,.75),inset 1px 0 rgba(255,255,255,.1),inset -1px 0 rgba(255,255,255,.1);
+}
+
+#powerbar li > a{
+	border: none;
+}
+
+.tabs-right {
+	border: none;
+}
+
+.tabs-right>li {
+	margin-left: none;
 }
