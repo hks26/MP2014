@@ -29,6 +29,10 @@ h1,h2,h3,h4,h5,h6 {
 	font-family: 'Geogrotesque';
 }
 
+body, .container-fluid, .full, .ember-view {
+	height: 100%;
+}
+
 #powerbar {
 	background-color: #1f2121;
 	-webkit-box-shadow: -1px 0 rgba(0,0,0,.75),inset 1px 0 rgba(255,255,255,.1),inset -1px 0 rgba(255,255,255,.1);
