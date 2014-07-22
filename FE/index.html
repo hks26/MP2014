@@ -114,34 +114,34 @@
 
 
         <div class="row">
-        <h1 class="ciqred"> User Name</h1>
+        <h1 class="ciqred"> {{ fullname }}</h1>
         </div>
         <div class ="row">
-        <h3> Job Title, Company (Division)</h3>
+        <h3> {{ job_title }} at {{ organization }}</h3>
         <hr> 
         </div>
         <div class ="row">
         <div class ="col-md-12">
         Phone: 
-          <div class="pull-right">   405-334-6714
+          <div class="pull-right">   {{ phone_number }}
           </div> 
         </div>
         <div class ="col-md-12">
           Address: 
-          <div class="pull-right"> 943 Pacific St, NY, NY
+          <div class="pull-right"> {{ address }}
           </div>
         </div>
         </div>
         <div class="row">
         <div class="col-md-12">
-          Primary Email:
-          <div class="pull-right">francescoA@spcapitaliq.com
+          Primary Email: 
+          <div class="pull-right">{{ primary_email }}
           </div>
         </div>
         <div class="col-md-12">
           Secondary Email: 
         <div class="pull-right">
-        asgawertasdf@gmail.com
+        {{ secondary_email }}
         </div>
         </div>
         </div>
