@@ -11,7 +11,6 @@ App.IndexRoute = Ember.Route.extend({
 
 App.UserRoute = Ember.Route.extend({
   model: function(params) {
-  	return this.
-  	//return this.store.find('user', params.user_id);
+  	return this.store.find('user', params.user_id);
   }
 })
