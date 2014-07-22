@@ -33,6 +33,25 @@ html, body, .container-fluid, .full, .ember-view {
 	height: 100%;
 }
 
+.dropdown {
+	font-family: 'Geogrotesque';
+}
+
+.dropdown-toggle {
+	background: linear-gradient(180deg, rgb(37, 39, 39,)0%, rgb(45, 47, 47) 100%);
+	border: #494848, 1px;
+	border-radius: 3px;
+}
+
+#nav-logo {
+	background: url("../Images/logo-spciq.png") no-repeat 0 0;
+	width: 145px;
+	height: 45px;
+	margin-top:3px;
+	margin-left: 5px;
+	margin-right: 16px;
+}
+
 #powerbar {
 	background-color: #1f2121;
 	-webkit-box-shadow: -1px 0 rgba(0,0,0,.75),inset 1px 0 rgba(255,255,255,.1),inset -1px 0 rgba(255,255,255,.1);
