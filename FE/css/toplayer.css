@@ -13,7 +13,6 @@ background-color: #CBCBCB;
 
 div#topbar {
 	height: 52px;
-
 }
 
 body {
@@ -176,12 +175,12 @@ li.active>a.CIQnotifications, li.active>a.CIQnotifications:hover, li.active>a.CI
 	width: 22px;
 	height: 21px;
 }
+
 #CIQcontacts {
 	background: url("../Images/mainSprite.png") no-repeat -250px -100px;
 	width: 17px;
 	height: 21px;
-	left: 4px;
-	
+	left: 4px;	
 }
 
 #CIQcontacts a:hover, #CIQcontacts a:focus{
