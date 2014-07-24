@@ -11,10 +11,10 @@
   transform: translate(0%,0);
 }
 #sidepanel.closed {
-  -webkit-transform: translate(-95%,0);
-  -moz-transform: translate(-95%,0);
-  -ms-transform: translate(-95%,0);
-  transform: translate(-95%,0);
+  -webkit-transform: translate(-94%,0);
+  -moz-transform: translate(-94%,0);
+  -ms-transform: translate(-94%,0);
+  transform: translate(-94%,0);
 }
 
 * {
