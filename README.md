@@ -1,6 +1,8 @@
 MP2014-Team4
 ============
 
+URL: http://ec2-54-191-99-49.us-west-2.compute.amazonaws.com/
+
 This repository consists of both the back-end (BE) and front-end (FE) to AlphaForce's mission possible project.
 
 ##FE 
