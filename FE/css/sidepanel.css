@@ -1,5 +1,9 @@
 #sidepanel {
   width: 25%;
+  min-width: 350px;
+  position: absolute;
+  z-index: 99;
+  background-color: black;
   -webkit-transition: -webkit-transform .3s ease;
   -moz-transition: -moz-transform .3s ease;
   -ms-transition: -ms-transform .3s ease;
@@ -8,6 +12,7 @@
 
 #powerbar {
   min-width: 30px;
+
 }
 #sidepanel.opened {
   -webkit-transform: translate(0%,0);
