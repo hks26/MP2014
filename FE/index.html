@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="bootstrap-vertical-tabs/bootstrap.vertical-tabs.css">
   <link rel="stylesheet" href="css/sidepanel.css">
   <link rel="stylesheet" href="css/toplayer.css">
+  <link rel="stylesheet" href="css/user.css">
 </head>
 <body>
 
@@ -127,20 +128,20 @@
   <script type="text/x-handlebars" data-template-name="user">
   
       <div class="row">
-      <div class="col-md-5 col-md-offset-1">
-        <--> User Image</-->
+      <div class="col-md-22 col-md-offset-1">
+      <div class="col-md-3 ">
+        User Image
       </div>
-      <div class="col-md-16 col-md-offset-1">
-
-
+      <div class="col-md-20 col-md-offset-1">
         <div class="row">
         <h1 class="ciqred"> {{ fullname }}</h1>
         </div>
         <div class ="row">
         <h3> {{ job_title }} at {{ organization }}</h3>
-        <hr> 
         </div>
+      </div>
         <div class ="row">
+         
         <div class ="col-md-12">
         Phone: 
           <div class="pull-right">   {{ phone_number }}
@@ -186,24 +187,30 @@
             <hr>
             <h3> Workspace History </h3>
             <div class = "row">
-              <div class = "col-md-6">
-               <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace">
+              <div class = "workspaceCard">
+               <h6> Workspace 1 </h6>
+               <div class = "row"> 
+               <div class = "col-md-5 col-md-offset-1 workspaceIcon"></div>
+               <div class = "col-md-17 col-md-offset-1"> 
+               Status: Active <br>
+               test123 <br>
+               text <br>
+               </div>
               </div>
-              <div class = "col-md-6">
-                      <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace">
+              <div class = "workspaceCard">
               </div>
-              <div class = "col-md-6">
-                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace">
+              <div class = "workspaceCard">
               </div>
-              <div class = "col-md-6">
-                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace">
+              <div class = "workspaceCard">
+              </div>
+              <div class = "workspaceCard">
               </div>
             </div>
           </div>
+          <hr>
         </div>
-        <hr>
         <div class="row">
-          <div class="col-md-24">
+          <hr>
             My Shared Articles
           </div>
         </div>
@@ -219,13 +226,7 @@
         </div>
         </div>
       </div>
-        
       </div>
-      <div class="row">
-        asdfasdfwga
-      </div>
-      <div class="row">
-        asdfasdfwga
       </div>
       
   </script>

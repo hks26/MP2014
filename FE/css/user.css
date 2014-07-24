@@ -1,0 +1,38 @@
+.workspaceCard {
+background-color: #181818;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+width: 22%;
+height: 94px;
+padding:8px;
+float: left;
+margin: 0 10px 10px 0;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+
+.workspaceCard h6 {
+	font-family: Arial;
+	font-size: 16px;
+	margin-top: 0px;
+}
+
+.workspaceCard ul {
+	list-style-type: none;
+}
+
+.workspaceCard li{
+	padding-left: 0;
+	margin-left: 0;
+}
+
+.workspaceIcon{
+	background: url(../Images/mainSprite.png) no-repeat -600px -300px;
+	width: 50px;
+	height: 50px;
+	min-height: 50px;
+	min-width: 50px;
+	color: transparent;
+}
