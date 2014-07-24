@@ -1,4 +1,4 @@
-App.SidePanelComponent = Ember.Controller.extend({
+App.SidePanelComponent = Em.Component.extend({
  	isOpen: false,
  	actions: {
  		toggleSidepanel: function() {

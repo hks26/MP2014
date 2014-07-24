@@ -15,36 +15,34 @@
 
   <script type="text/x-handlebars" id="components/side-panel">
     <!-- power bar -->
-      <div class="row">
-        <div  class="col-md-7">
-          <div id="sidepanel" {{bind-attr class="isOpen:opened:closed"}}>
-            <div class="col-md-22">
-                <!-- Tab panes -->
-              <div class="tab-content">
-                <div class="tab-pane active" id="notify-r"><h3>Notifications</h3></div>
-                <div class="tab-pane" id="application-r"><h3>Applications </h3></div>
-                <div class="tab-pane" id="workspaces-r"><h3>Workspaces</h3></div>
-                <div class="tab-pane" id="library-r"><h3>Library</h3></div>
-                <div class="tab-pane" id="favorites-r"><h3>Favorites</h3></div>
-                <div class="tab-pane" id="contacts-r"><h3>Contacts</h3></div>
-                <div class="tab-pane" id="edge-r"><h3>Edge</h3></div>
-              </div>
-            </div>
-            <div id="powerbar" class="col-md-2"> <!-- required for floating -->
-              <!-- Nav tabs -->
-              <ul class="nav nav-tabs tabs-right">
-                <li class="active" id="CIQnotifications"><a href="#notify-r" data-toggle="tab"></a></li>
-                <li id="CIQapplications"><a href="#application-r" data-toggle="tab"> </a></li>
-                <li id="CIQworkspaces"><a href="#workspaces-r" data-toggle="tab"></a></li>
-                <li id="CIQlibrary"><a href="#library-r" data-toggle="tab"></a></li>
-                <li id="CIQfavorites"><a href="#favorites-r" data-toggle="tab"></a></li>
-                <li id="CIQcontacts"><a href="#contacts-r" data-toggle="tab"></a></li>
-                <li id="CIQedge"><a href="#edge-r" data-toggle="tab"></a></li>
-                <li {{ action "toggleSidepanel" }} style="min-height:400px"> </li>
-              </ul>
+      <div id="sidepanel" {{bind-attr class="isOpen:opened:closed"}}>
+        <div class="row">
+          <div class="col-md-22 col-sm-22">
+              <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="notify-r"><h3>Notifications</h3></div>
+              <div class="tab-pane" id="application-r"><h3>Applications </h3></div>
+              <div class="tab-pane" id="workspaces-r"><h3>Workspaces</h3></div>
+              <div class="tab-pane" id="library-r"><h3>Library</h3></div>
+              <div class="tab-pane" id="favorites-r"><h3>Favorites</h3></div>
+              <div class="tab-pane" id="contacts-r"><h3>Contacts</h3></div>
+              <div class="tab-pane" id="edge-r"><h3>Edge</h3></div>
             </div>
           </div>
-        </div>
+          <div id="powerbar" class="col-md-2 col-sm-2"> <!-- required for floating -->
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs tabs-right">
+              <li class="active" id="CIQnotifications"><a href="#notify-r" data-toggle="tab"></a></li>
+              <li id="CIQapplications"><a href="#application-r" data-toggle="tab"> </a></li>
+              <li id="CIQworkspaces"><a href="#workspaces-r" data-toggle="tab"></a></li>
+              <li id="CIQlibrary"><a href="#library-r" data-toggle="tab"></a></li>
+              <li id="CIQfavorites"><a href="#favorites-r" data-toggle="tab"></a></li>
+              <li id="CIQcontacts"><a href="#contacts-r" data-toggle="tab"></a></li>
+              <li id="CIQedge"><a href="#edge-r" data-toggle="tab"></a></li>
+              <li {{ action "toggleSidepanel" }} style="min-height:400px"> </li>
+            </ul>
+          </div>
+        </>
       </div>
       <!-- end of powerbar -->
   </script>
@@ -112,7 +110,7 @@
     </ul>
   </script-->
 
-<script type="text/x-handlebars" id="components/side-panel">
+<script type="text/x-handlebars" id="components/example">
     <button {{ action "toggleSidepanel" }} class="btn-toggle">
       {{#if isOpen}} close {{else}} open 
       {{/if}}
@@ -229,7 +227,7 @@
   <script src="js/app.js"></script>
   <script src="js/router.js"></script>
   <script src="js/models/user.js"></script>
-  <script src="js/controllers/index.js"></script>
+  <script src="js/components/sidepanel.js"></script>
   
 
   <!-- to activate the test runner, add the "?test" query string parameter -->

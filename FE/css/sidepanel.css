@@ -1,8 +1,13 @@
 #sidepanel {
+  width: 25%;
   -webkit-transition: -webkit-transform .3s ease;
   -moz-transition: -moz-transform .3s ease;
   -ms-transition: -ms-transform .3s ease;
   transition: transform .3s ease;
+}
+
+#powerbar {
+  min-width: 30px;
 }
 #sidepanel.opened {
   -webkit-transform: translate(0%,0);
