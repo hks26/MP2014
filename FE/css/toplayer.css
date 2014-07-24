@@ -11,9 +11,24 @@ background-color: #CBCBCB;
 background-color: #CBCBCB;
 }
 
-div#topbar {
+#topbar {
 	height: 52px;
+	background-color: #141414;
+	border: none;
+}
 
+.navbar-collapse{
+	background-color: #141414;
+	border: none;
+}
+
+.navbar-inverse {
+	background-color: #141414;
+	border: none;
+}
+
+.navbar-inverse .container-fluid {
+	background-color: #141414;
 }
 
 body {
