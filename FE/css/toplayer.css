@@ -108,11 +108,23 @@ html, body, .container-fluid, .full, .ember-view {
 	margin: 15px 0px;
 }
 
+#powerbar li:not(:last-of-type)::after {
+position: absolute;
+bottom: -5px;
+left: -6px;
+display: block;
+content: "";
+width: 30px;
+height: 1px;
+background: transparent;
+background-image: linear-gradient(to right,rgba(255,255,255,0) 0%,rgba(255,255,255,.2) 50%,rgba(255,255,255,0) 100%);
+}
+
+
 #CIQnotifications {
 	background: url("../Images/mainSprite.png") no-repeat 0 -100px;
 	width: 20px;
 	height: 21px;	
-	left: 3px;
 }
 
 #CIQnotifications a:hover, #CIQnotifications a:focus {
@@ -120,18 +132,17 @@ html, body, .container-fluid, .full, .ember-view {
 	width: 20px;
 	height: 21px;
 }
-li.active>a.CIQnotifications, li.active>a.CIQnotifications:hover, li.active>a.CIQnotifications:focus {
-	background: url("../Images/mainSprite.png") no-repeat 0 -150px;
-	width: 20px;
-	height: 21px;
-}
 
+.nav-tabs > li.active >a,
+.nav-tabs > li.active >a:hover,
+.nav-tabs > li.active  >a:focus {
+  background: inherit;
+}
 
 #CIQapplications {
 	background: url("../Images/mainSprite.png") no-repeat -50px -100px;
 	width: 17px;
 	height: 21px;
-	left: 4px;
 }
 
 #CIQapplications a:hover, #CIQapplications a:focus{
@@ -143,7 +154,7 @@ li.active>a.CIQnotifications, li.active>a.CIQnotifications:hover, li.active>a.CI
 	background: url("../Images/mainSprite.png") no-repeat -100px -100px;
 	width: 22px;
 	height: 22px;
-	left: 2px;
+	left: -3px;
 }
 
 #CIQworkspaces a:hover, #CIQworkspaces a:focus{
@@ -155,7 +166,7 @@ li.active>a.CIQnotifications, li.active>a.CIQnotifications:hover, li.active>a.CI
 	background: url("../Images/mainSprite.png") no-repeat -150px -100px;
 	width: 27px;
 	height: 21px;
-	
+	left: -4px;
 }
 
 #CIQlibrary a:hover, #CIQlibrary a:focus{
@@ -167,8 +178,7 @@ li.active>a.CIQnotifications, li.active>a.CIQnotifications:hover, li.active>a.CI
 	background: url("../Images/mainSprite.png") no-repeat -200px -100px;
 	width: 22px;
 	height: 21px;
-	left: 1px;
-	
+	left: -2px;
 }
 
 #CIQfavorites a:hover, #CIQfavorites a:focus{
@@ -177,15 +187,14 @@ li.active>a.CIQnotifications, li.active>a.CIQnotifications:hover, li.active>a.CI
 	height: 21px;
 }
 #CIQcontacts {
-	background: url("../Images/mainSprite.png") no-repeat -250px -100px;
+	background: url("../Images/mainSprite.png") no-repeat -300px -100px;
 	width: 17px;
 	height: 21px;
-	left: 4px;
 	
 }
 
 #CIQcontacts a:hover, #CIQcontacts a:focus{
-	background: url("../Images/mainSprite.png") no-repeat -250px -150px;
+	background: url("../Images/mainSprite.png") no-repeat -300px -150px;
 	width: 17px;
 	height: 21px;
 }
@@ -193,8 +202,6 @@ li.active>a.CIQnotifications, li.active>a.CIQnotifications:hover, li.active>a.CI
 	background: url("../Images/mainSprite.png") no-repeat -300px -100px;
 	width: 17px;
 	height: 21px;
-	left: 4px;
-	
 }
 
 #CIQedge a:hover, #CIQedge a:focus{
