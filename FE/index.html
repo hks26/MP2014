@@ -104,7 +104,7 @@
               <div class="tab-pane" id="edge-r"><h2>Edge</h2></div>
             </div>
           </div>
-          <div id="powerbar" {{ action "toggleSidepanel" }} class="col-md-2"> <!-- required for floating -->
+          <div id="powerbar" class="col-md-2"> <!-- required for floating -->
             <!-- Nav tabs -->
             <ul class="nav nav-tabs tabs-right">
               <li class="active" id="CIQnotifications"><a href="#notify-r" data-toggle="tab"></a></li>
@@ -114,7 +114,7 @@
               <li id="CIQfavorites"><a href="#favorites-r" data-toggle="tab"></a></li>
               <li id="CIQcontacts"><a href="#contacts-r" data-toggle="tab"></a></li>
               <li id="CIQedge"><a href="#edge-r" data-toggle="tab"></a></li>
-              <li style="min-height:400px"> </li>
+              <li {{ action "toggleSidepanel" }} style="min-height:400px"> </li>
             </ul>
           </div>
         </div>
