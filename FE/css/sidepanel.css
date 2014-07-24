@@ -1,92 +1,22 @@
-.sidepanel {
-  position: absolute;
-  top: 0;
-  left: 0;
+#sidepanel {
   -webkit-transition: -webkit-transform .3s ease;
   -moz-transition: -moz-transform .3s ease;
   -ms-transition: -ms-transform .3s ease;
   transition: transform .3s ease;
 }
-.sidepanel.opened {
+#sidepanel.opened {
   -webkit-transform: translate(0%,0);
   -moz-transform: translate(0%,0);
   -ms-transform: translate(0%,0);
   transform: translate(0%,0);
 }
-.sidepanel.closed {
+#sidepanel.closed {
   -webkit-transform: translate(-95%,0);
   -moz-transform: translate(-95%,0);
   -ms-transform: translate(-95%,0);
   transform: translate(-95%,0);
 }
-.sidepanel-2.opened {
-  -webkit-transform: translate(0%,0);
-  -moz-transform: translate(0%,0);
-  -ms-transform: translate(0%,0);
-  transform: translate(0%,0);
-}
-.sidepanel-2.closed {
-  -webkit-transform: translate(95%,0);
-  -moz-transform: translate(95%,0);
-  -ms-transform: translate(95%,0);
-  transform: translate(95%,0);
-}
-body {
-  background: #f9f9f9;
-  font-family: 'Helvetica Neue', Arial;
-  font-size: 12px;
-  margin: 20px;
-}
-.viewport {
-  overflow: hidden;
-  padding: 25px 75px;
-  position: absolute;
-  top: 35px;
-  bottom: 70px;
-  left: 35px;
-  right: 35px;
-  outline: 1px solid #3ab6da;
-  background: white;
-}
-.sidepanel,
-.sidepanel-2 {
-  width: 200px;
-  height: 100%;
-  padding: 25px;
-  background: #eee;
-  border: 1px solid #ccc;
-}
-.sidepanel .btn-toggle,
-.sidepanel-2 .btn-toggle {
-  display: inline-block;
-  position: absolute;
-  left: 100%;
-  margin: 0;
-  margin-left: -12px;
-  background: #f1f1f1;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-  color: black;
-  text-decoration: none;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-.sidepanel .btn-toggle:hover,
-.sidepanel-2 .btn-toggle:hover {
-  background: #ddd;
-}
-.sidepanel-2 {
-  left: auto;
-  right: 0;
-}
-.sidepanel-2 .btn-toggle {
-  left: auto;
-  right: 100%;
-  margin-left: 0;
-  margin-right: -12px;
-}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

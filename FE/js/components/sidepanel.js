@@ -6,6 +6,7 @@ App.SidePanelComponent = Em.Component.extend({
 	isOpen: false,
 	actions: {
 		toggleSidepanel: function() {
+			console.log(this.isOpen);
 			this.toggleProperty('isOpen');
 		}
 	}
