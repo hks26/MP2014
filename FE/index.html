@@ -58,9 +58,40 @@
         </div>
         </nav>
       </div>
-
-      {{outlet}}
-
+      <!-- power bar -->
+      <div class="row">
+        <div  class="col-md-7">
+          <div id="sidepanel" {{bind-attr class="isOpen:opened:closed"}}>
+            <div class="col-md-22">
+                <!-- Tab panes -->
+              <div class="tab-content">
+                <div class="tab-pane active" id="notify-r"><h3>Notifications</h3></div>
+                <div class="tab-pane" id="application-r"><h3>Applications </h3></div>
+                <div class="tab-pane" id="workspaces-r"><h3>Workspaces</h3></div>
+                <div class="tab-pane" id="library-r"><h3>Library</h3></div>
+                <div class="tab-pane" id="favorites-r"><h3>Favorites</h3></div>
+                <div class="tab-pane" id="contacts-r"><h3>Contacts</h3></div>
+                <div class="tab-pane" id="edge-r"><h3>Edge</h3></div>
+              </div>
+            </div>
+            <div id="powerbar" class="col-md-2"> <!-- required for floating -->
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs tabs-right">
+                <li class="active" id="CIQnotifications"><a href="#notify-r" data-toggle="tab"></a></li>
+                <li id="CIQapplications"><a href="#application-r" data-toggle="tab"> </a></li>
+                <li id="CIQworkspaces"><a href="#workspaces-r" data-toggle="tab"></a></li>
+                <li id="CIQlibrary"><a href="#library-r" data-toggle="tab"></a></li>
+                <li id="CIQfavorites"><a href="#favorites-r" data-toggle="tab"></a></li>
+                <li id="CIQcontacts"><a href="#contacts-r" data-toggle="tab"></a></li>
+                <li id="CIQedge"><a href="#edge-r" data-toggle="tab"></a></li>
+                <li {{ action "toggleSidepanel" }} style="min-height:400px"> </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {{outlet}}
+      </div>
+      <!-- end of powerbar -->
     </div>
   </script>
 
@@ -89,97 +120,62 @@
 
 
 <script type="text/x-handlebars" data-template-name="index">
-    <div class="row">
-      <div  class="col-md-7">
-        <div id="sidepanel" {{bind-attr class="isOpen:opened:closed"}}>
-          <div class="col-md-22">
-              <!-- Tab panes -->
-            <div class="tab-content">
-              <div class="tab-pane active" id="notify-r"><h3>Notifications</h3></div>
-              <div class="tab-pane" id="application-r"><h3>Applications </h3></div>
-              <div class="tab-pane" id="workspaces-r"><h3>Workspaces</h3></div>
-              <div class="tab-pane" id="library-r"><h3>Library</h3></div>
-              <div class="tab-pane" id="favorites-r"><h3>Favorites</h3></div>
-              <div class="tab-pane" id="contacts-r"><h3>Contacts</h3></div>
-              <div class="tab-pane" id="edge-r"><h3>Edge</h3></div>
-            </div>
-          </div>
-          <div id="powerbar" class="col-md-2"> <!-- required for floating -->
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs tabs-right">
-              <li class="active" id="CIQnotifications"><a href="#notify-r" data-toggle="tab"></a></li>
-              <li id="CIQapplications"><a href="#application-r" data-toggle="tab"> </a></li>
-              <li id="CIQworkspaces"><a href="#workspaces-r" data-toggle="tab"></a></li>
-              <li id="CIQlibrary"><a href="#library-r" data-toggle="tab"></a></li>
-              <li id="CIQfavorites"><a href="#favorites-r" data-toggle="tab"></a></li>
-              <li id="CIQcontacts"><a href="#contacts-r" data-toggle="tab"></a></li>
-              <li id="CIQedge"><a href="#edge-r" data-toggle="tab"></a></li>
-              <li {{ action "toggleSidepanel" }} style="min-height:400px"> </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </script>
+    
+</script>
 
 
 
   <script type="text/x-handlebars" data-template-name="user">
   
       <div class="row">
-      <div class="col-md-5 col-md-offset-1">
-        <--> User Image</-->
-      </div>
-      <div class="col-md-16 col-md-offset-1">
-
-
-        <div class="row">
-        <h1 class="ciqred"> {{ fullname }}</h1>
-        </div>
-        <div class ="row">
-        <h3> {{ job_title }} at {{ organization }}</h3>
-        <hr> 
-        </div>
-        <div class ="row">
-        <div class ="col-md-12">
-        Phone: 
-          <div class="pull-right">   {{ phone_number }}
-          </div> 
-        </div>
-        <div class ="col-md-12">
-          Address: 
-          <div class="pull-right"> {{ address }}
+        <div class="col-md-16 col-md-offset-1">
+          <div class="row">
+            <h1 class="ciqred"> {{ fullname }}</h1>
+          </div>
+          <div class ="row">
+          <h3> {{ job_title }} at {{ organization }}</h3>
+          <hr> 
+          </div>
+          <div class ="row">
+            <div class ="col-md-12">
+            Phone: 
+            <div class="pull-right">   {{ phone_number }}
+            </div> 
+          </div>
+          <div class ="col-md-12">
+            Address: 
+            <div class="pull-right"> {{ address }}
+            </div>
           </div>
         </div>
-        </div>
         <div class="row">
-        <div class="col-md-12">
-          Primary Email: 
-          <div class="pull-right">{{ primary_email }}
+          <div class="col-md-12">
+            Primary Email: 
+            <div class="pull-right">{{ primary_email }}
+            </div>
           </div>
-        </div>
-        <div class="col-md-12">
-          Secondary Email: 
-        <div class="pull-right">
-        {{ secondary_email }}
-        </div>
-        </div>
+          <div class="col-md-12">
+            Secondary Email: 
+            <div class="pull-right">
+            {{ secondary_email }}
+            </div>
+          </div>
         </div>
         <hr>
         <div class="row">
           <div class="col-md-10">
-          <div class="form-group">
-            <label for="inputTags">Tags</label>
-            <input type="email" class="form-control inputTags" placeholder="Enter tags">
-          </div> 
+            <div class="form-group">
+              <label for="inputTags">Tags</label>
+              <input type="email" class="form-control inputTags" placeholder="Enter tags">
+            </div> 
           </div>
           <div class="col-md-14">
             <div class="form-group">
-            <label for="inputNotes">Notes</label>
-            <input type="email" class="form-control inputNotes" placeholder="Enter notes">
-          </div> 
+              <label for="inputNotes">Notes</label>
+              <input type="email" class="form-control inputNotes" placeholder="Enter notes">
+            </div> 
           </div>
-          <hr >
+          <hr>
         </div>   
         <div class="row">
           <div class="col-md-24">
@@ -208,25 +204,24 @@
           </div>
         </div>
         <div class="row"> 
-        <div class="col-md-7 well well-sm">
-          One story goes here
+          <div class="col-md-7 well well-sm">
+            One story goes here
+          </div>
+          <div class="col-md-7 offset1 well well-sm">
+            One story goes here
+          </div>
+          <div class="col-md-7 offset1 well well-sm">
+            One story goes here
+          </div>
         </div>
-        <div class="col-md-7 offset1 well well-sm">
-          One story goes here
-        </div>
-        <div class="col-md-7 offset1 well well-sm">
-          One story goes here
-        </div>
-        </div>
-      </div>
-        
-      </div>
-      <div class="row">
-        asdfasdfwga
-      </div>
-      <div class="row">
-        asdfasdfwga
-      </div>
+      </div>  
+    </div>
+    <div class="row">
+      asdfasdfwga
+    </div>
+    <div class="row">
+      asdfasdfwga
+    </div>
       
   </script>
 
@@ -239,7 +234,6 @@
   <script src="js/app.js"></script>
   <script src="js/router.js"></script>
   <script src="js/models/user.js"></script>
-  <script src="js/components/sidepanel.js"></script>
   <script src="js/controllers/index.js"></script>
   
 
