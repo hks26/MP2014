@@ -1,0 +1,91 @@
+<!--
+You are free to copy and use this sample in accordance with the terms of the
+Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google AJAX Search API Sample</title>
+    <script src="//www.google.com/jsapi?key=AIzaSyA5m1Nc8ws2BbmPRwKu5gFradvD_hgq6G0" type="text/javascript"></script>
+    <script type="text/javascript">
+    /*
+    *  How to receive results in XML.
+    */
+    
+    google.load("feeds", "1");
+    
+    // Our callback function, for when a feed is loaded.
+    function feedLoaded(result) {
+      if (!result.error) {
+        // Get and clear our content div.
+        var content = document.getElementById('content');
+
+       content.appendChild(document.createElement('b')); // Add a new line
+        var chan =  result.xmlDocument.getElementsByTagName('channel');
+        var chanTitle= chan[0].getElementsByTagName('title')[0].firstChild.nodeValue;
+       var chanDesc= chan[0].getElementsByTagName('description')[0].firstChild.nodeValue;
+       content.appendChild(document.createTextNode(chanTitle));  // Get all items returned.
+         content.appendChild(document.createElement('br'));
+      content.appendChild(document.createTextNode(chanDesc));
+        content.appendChild(document.createElement('br')); // Add a new line
+           content.appendChild(document.createElement('hr')); // Add a new line
+        content.appendChild(document.createElement('br')); // Add a new line
+        
+  
+
+        var items = result.xmlDocument.getElementsByTagName('item');
+        // Loop through our items
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i];
+    
+          // Get the title from the element.  firstChild is the text node containing
+          // the title, and nodeValue returns the value of it.
+          var title = item.getElementsByTagName('title')[0].firstChild.nodeValue;
+    var description=item.getElementsByTagName('description')[0].firstChild.nodeValue;
+          content.appendChild(document.createTextNode(title)); // Append the title to the page
+          content.appendChild(document.createElement('br')); // Add a new line
+        }
+      }
+        content.appendChild(document.createElement('hr')); // Add a new line
+        content.appendChild(document.createElement('hr')); // Add a new line
+           content.appendChild(document.createElement('br')); // Add a new line     
+      content.appendChild(document.createElement('br')); // Add a new line
+    }
+  
+    function OnLoad() {
+      // Create a feed instance that will grab Digg's feed.
+      
+          var feedInfo = [
+    {
+      title: 'People',
+      url: 'http://rss.people.com/web/people/rss/topheadlines/index.xml'
+    },
+    {
+      title: 'E-Online',
+      url: 'http://www.eonline.com/syndication/feeds/rssfeeds/topstories.xml'
+    },
+    {
+      title: 'TMZ',
+      url: 'http://www.tmz.com/rss.xml'
+    }
+  ];
+      for (var i = 0; i< feedInfo.length; i ++)
+      {
+      var feed = new google.feeds.Feed(feedInfo[i].url);
+      // Request the results in XML
+      feed.setResultFormat(google.feeds.Feed.XML_FORMAT);
+      // Calling load sends the request off.  It requires a callback function.
+      feed.load(feedLoaded);
+       
+    }
+    }
+    
+    google.setOnLoadCallback(OnLoad);
+    </script>
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+    <div id="content"></div>
+  </body>
+</html>

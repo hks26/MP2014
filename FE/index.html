@@ -7,9 +7,46 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.css">
-  <link rel="stylesheet" href="css/toplayer.css">  
+  <link rel="stylesheet" href="bootstrap-vertical-tabs/bootstrap.vertical-tabs.css">
+  <link rel="stylesheet" href="css/sidepanel.css">
+  <link rel="stylesheet" href="css/toplayer.css">
+  <link rel="stylesheet" href="css/user.css">
 </head>
 <body>
+
+  <script type="text/x-handlebars" id="components/side-panel">
+    <!-- power bar -->
+      <div id="sidepanel" {{bind-attr class="isOpen:opened:closed"}}>
+        <div class="row">
+          <div class="col-xs-22">
+              <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="notify-r"><h3>Notifications</h3></div>
+              <div class="tab-pane" id="application-r"><h3>Applications </h3></div>
+              <div class="tab-pane" id="workspaces-r"><h3>Workspaces</h3></div>
+              <div class="tab-pane" id="library-r"><h3>Library</h3></div>
+              <div class="tab-pane" id="favorites-r"><h3>Favorites</h3></div>
+              <div class="tab-pane" id="contacts-r"><h3>Contacts</h3></div>
+              <div class="tab-pane" id="edge-r"><h3>Edge</h3></div>
+            </div>
+          </div>
+          <div id="powerbar" class="col-xs-2"> <!-- required for floating -->
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs tabs-right">
+              <li class="active" id="CIQnotifications"><a href="#notify-r" data-toggle="tab"></a></li>
+              <li id="CIQapplications"><a href="#application-r" data-toggle="tab"> </a></li>
+              <li id="CIQworkspaces"><a href="#workspaces-r" data-toggle="tab"></a></li>
+              <li id="CIQlibrary"><a href="#library-r" data-toggle="tab"></a></li>
+              <li id="CIQfavorites"><a href="#favorites-r" data-toggle="tab"></a></li>
+              <li id="CIQcontacts"><a href="#contacts-r" data-toggle="tab"></a></li>
+              <li id="CIQedge"><a href="#edge-r" data-toggle="tab"></a></li>
+              <li {{ action "toggleSidepanel" }} style="min-height:400px"> </li>
+            </ul>
+          </div>
+        </>
+      </div>
+      <!-- end of powerbar -->
+  </script>
 
   <script type="text/x-handlebars">
     <div class="container-fluid">
@@ -23,12 +60,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">PUT LOGO HERE</a>
+            <a class="navbar-brand" href="#" id="nav-logo"></a>
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search All <span class="caret"></span></a>
+              <li class="dropdown" id="wtf1">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">SEARCH ALL <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li><a href="#">Action</a></li>
                   <li><a href="#">Another action</a></li>
@@ -41,10 +78,11 @@
               </li>
             </ul>
             <form class="navbar-form navbar-left" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Tell me what you are looking for...">
+              <div class="form-group" >
+                <input type="text" class="form-control" id="navbar-search" placeholder="Tell me what you are looking for...">
+                </input>
+                <!--span id="nav-searchicon"></span-->
               </div>
-              <button type="submit" class="btn btn-default">SUBMIT Icon</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#">Settings</a></li>
@@ -55,7 +93,7 @@
         </div>
         </nav>
       </div>
-
+      {{side-panel}}
       {{outlet}}
 
     </div>
@@ -75,69 +113,72 @@
     </ul>
   </script-->
 
+<script type="text/x-handlebars" id="components/example">
+    <button {{ action "toggleSidepanel" }} class="btn-toggle">
+      {{#if isOpen}} close {{else}} open 
+      {{/if}}
+    </button>
+    {{ yield }}
 
-  <script type="text/x-handlebars" data-template-name="index">
+</script>
+
+
+<script type="text/x-handlebars" data-template-name="index">
+    
+</script>
+
+
+
+<script type="text/x-handlebars" data-template-name="user">
   
-
-  </script>
-
-
-  <script type="text/x-handlebars" data-template-name="user">
-  
-      <div class="row">
-      <div class="col-md-5 col-md-offset-1">
-        <--> User Image</-->
-      </div>
-      <div class="col-md-16 col-md-offset-1">
-
-
-        <div class="row">
-        <h1 class="ciqred"> User Name</h1>
-        </div>
-        <div class ="row">
-        <h3> Job Title, Company (Division)</h3>
-        <hr> 
-        </div>
-        <div class ="row">
-        <div class ="col-md-12">
-        Phone: 
-          <div class="pull-right">   405-334-6714
-          </div> 
-        </div>
-        <div class ="col-md-12">
-          Address: 
-          <div class="pull-right"> 943 Pacific St, NY, NY
+        <div class="col-md-16 col-md-offset-1">
+          <div class="row">
+            <h1 class="ciqred"> {{ fullname }}</h1>
+          </div>
+          <div class ="row">
+          <h3> {{ job_title }} at {{ organization }}</h3>
+          <hr> 
+          </div>
+          <div class ="row">
+            <div class ="col-md-12">
+            Phone: 
+            <div class="pull-right">   {{ phone_number }}
+            </div> 
+          </div>
+          <div class ="col-md-12">
+            Address: 
+            <div class="pull-right"> {{ address }}
+            </div>
           </div>
         </div>
-        </div>
         <div class="row">
-        <div class="col-md-12">
-          Primary Email:
-          <div class="pull-right">francescoA@spcapitaliq.com
+          <div class="col-md-12">
+            Primary Email: 
+            <div class="pull-right">{{ primary_email }}
+            </div>
           </div>
-        </div>
-        <div class="col-md-12">
-          Secondary Email: 
-        <div class="pull-right">
-        asgawertasdf@gmail.com
-        </div>
-        </div>
+          <div class="col-md-12">
+            Secondary Email: 
+            <div class="pull-right">
+            {{ secondary_email }}
+            </div>
+          </div>
         </div>
         <hr>
         <div class="row">
           <div class="col-md-10">
-          <div class="form-group">
-            <label for="inputTags">Tags</label>
-            <input type="email" class="form-control inputTags" placeholder="Enter tags">
-          </div> 
+            <div class="form-group">
+              <label for="inputTags">Tags</label>
+              <input type="email" class="form-control inputTags" placeholder="Enter tags">
+            </div> 
           </div>
           <div class="col-md-14">
             <div class="form-group">
-            <label for="inputNotes">Notes</label>
-            <input type="email" class="form-control inputNotes" placeholder="Enter notes">
-          </div> 
+              <label for="inputNotes">Notes</label>
+              <input type="email" class="form-control inputNotes" placeholder="Enter notes">
+            </div> 
           </div>
-          <hr >
+          <hr>
         </div>   
         <div class="row">
           <div class="col-md-24">
@@ -166,25 +207,17 @@
           </div>
         </div>
         <div class="row"> 
-        <div class="col-md-7 well well-sm">
-          One story goes here
+          <div class="col-md-7 well well-sm">
+            One story goes here
+          </div>
+          <div class="col-md-7 offset1 well well-sm">
+            One story goes here
+          </div>
+          <div class="col-md-7 offset1 well well-sm">
+            One story goes here
+          </div>
         </div>
-        <div class="col-md-7 offset1 well well-sm">
-          One story goes here
-        </div>
-        <div class="col-md-7 offset1 well well-sm">
-          One story goes here
-        </div>
-        </div>
-      </div>
-        
-      </div>
-      <div class="row">
-        asdfasdfwga
-      </div>
-      <div class="row">
-        asdfasdfwga
-      </div>
+      </div>  
       
   </script>
 
@@ -197,6 +230,7 @@
   <script src="js/app.js"></script>
   <script src="js/router.js"></script>
   <script src="js/models/user.js"></script>
+  <script src="js/components/sidepanel.js"></script>
   
 
   <!-- to activate the test runner, add the "?test" query string parameter -->
