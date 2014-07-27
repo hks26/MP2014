@@ -15,7 +15,7 @@ $.fn.enterKey = function (fnc) {
 };
 
 
-// Get JSON from twitter using Ajax calls
+/* Get JSON from twitter using Ajax calls */
 $("#search").enterKey(function() {
 	var search = document.getElementById("search").value;
 		
