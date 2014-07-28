@@ -9,7 +9,8 @@ App.User = DS.Model.extend({
   address: DS.attr('string'),
   fullname: function() {
     return this.get('first_name') + ' ' + this.get('last_name');
-  }.property('first_name', 'last_name')
+  }.property('first_name', 'last_name'),
+image: DS.attr('string')
 
 });
 
@@ -35,8 +36,12 @@ App.User.FIXTURES = [
     secondary_email: "francesco@spcapitaliq.com",
     job_title: "Architecture Intern",
     organization: "CAPIQ",
-    address: "Corso Venezia 42"
+    address: "Corso Venezia 42",
+image: "http://i1.squidoocdn.com/resize_square/squidoo_images/70/lm6356d9693075a49fcec2810e1b47b947_screenactors_headshot.jpg"
 
   }
 
 ]
+
+
+<img {{bind-attr src=image}}>
