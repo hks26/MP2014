@@ -90,7 +90,7 @@
               <li><br><img src="https://cdn4.iconfinder.com/data/icons/Primo_Icons/PNG/128x128/gear.png" height=20px; width=20px ></a></li>
             <li><br><img src= "http://etc-mysitemyway.s3.amazonaws.com/icons/legacy-previews/icons/glossy-silver-icons-alphanumeric/071082-glossy-silver-icon-alphanumeric-question-mark1-ps.png" height=20px; width=20px></li>
         <li><a href ="index2.html"> Log Out</a> </li>
-			    <li> <img src="./images/avatar-default.png" height=35px; width=35px float: right ></a></li>
+			    <li> <img src="./images/avatar-default.png" height=35px; width=35px; float: right; style="margin-top:10px;" ></a></li>
             </ul>
           </div>
         </div>
@@ -133,14 +133,14 @@
 
 
 <script type="text/x-handlebars" data-template-name="user">
-  
+  <div class="container-fluid">
         <div class="col-md-16 col-md-offset-1">
           <div class="row">
-            <div class="col-md-5"> 
-			<img {{bind-attr src=image}}>
+            <div class="col-md-3"> 
+			<img {{bind-attr src=image}} class="img-rounded img-responsive" style="margin-top:5px">
           </div>
            
-            <div class="col-md-14 col-md-offset-1">
+            <div class="col-md-14">
             <h1 class="ciqred"> {{ fullname }}</h1>
             <h3> {{ job_title }} at {{ organization }}</h3>
             </div>
@@ -203,17 +203,17 @@
             <hr>
             <h3> Workspace History </h3>
             <div class = "row">
-              <div class = "col-md-5">
-               <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace">
+              <div class = "col-md-6">
+               <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive" >
               </div>
-              <div class = "col-md-5 col-md-offset-1">
-                      <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace">
+              <div class = "col-md-6">
+                      <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
               </div>
-              <div class = "col-md-5 col-md-offset-1">
-                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace">
+              <div class = "col-md-6">
+                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
               </div>
-              <div class = "col-md-5 col-md-offset-1">
-                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace">
+              <div class = "col-md-6">
+                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
               </div>
 
             </div>
@@ -225,20 +225,25 @@
            <h3> My Shared Articles </h3>
           </div>
         </div>
-		<div class="col-md-30 col-md-offset-1">
         <div class="row"> 
-          <div class="col-md-7 well well-sm" id="sharedStory1">
+          <div class="col-md-8 " id="sharedStory1">
+            <div class = "col-md-23  storyCard">
             One story goes here
+            </div>
           </div>
-          <div class="col-md-7 col-md-offset-1 well well-sm" id="sharedStory2">
+          <div class="col-md-8 " id="sharedStory2">
+            <div class = "col-md-24  storyCard">
             One story goes here
+            </div>
           </div>
-          <div class="col-md-7 col-md-offset-1 well well-sm" id="sharedStory3">
+          <div class="col-md-8" id="sharedStory3">
+            <div class = "col-md-23 col-md-offset-1 storyCard">
             One story goes here
+            </div>
           </div>
         </div>
       </div>  
-	  </div>
+      </div>
       
   </script>
 
