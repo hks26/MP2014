@@ -24,7 +24,8 @@ App.User.FIXTURES = [
     secondary_email: "frankxie@spcapitaliq.com",
     job_title: "Caffeine Baron",
     organization: "The Franky Boys",
-    address: "Brooklyn"
+    address: "Brooklyn",
+image: "http://www.thestudioagency.co.uk/wpcf7_uploads/2013/04/Callum-Male-Model-The-Studio-Agency-Headshot.jpg"
 
   },
   {
@@ -37,11 +38,9 @@ App.User.FIXTURES = [
     job_title: "Architecture Intern",
     organization: "CAPIQ",
     address: "Corso Venezia 42",
-image: "http://i1.squidoocdn.com/resize_square/squidoo_images/70/lm6356d9693075a49fcec2810e1b47b947_screenactors_headshot.jpg"
+image: "http://austinama.org/wp-content/110125a-4309web-150x150.jpg"
 
   }
 
 ]
 
-
-<img {{bind-attr src=image}}>
