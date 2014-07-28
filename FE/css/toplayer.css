@@ -241,13 +241,13 @@ html, body, .container-fluid, .full, .ember-view {
 	height: 21px;
 }
 #CIQedge {
-	background: url("../Images/mainSprite.png") no-repeat -300px -100px;
-	width: 17px;
-	height: 21px;
+	background: url("../Images/defaultIcon.png") no-repeat;
+	width: 20px;
+	height: 20px;
 }
 
 #CIQedge a:hover, #CIQedge a:focus{
-	background: url("../Images/mainSprite.png") no-repeat -300px -150px;
-	width: 17px;
-	height: 21px;
+	background: url("../Images/edge_sel.png") no-repeat ;
+	width: 20px;
+	height: 20px;
 }
