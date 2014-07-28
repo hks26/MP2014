@@ -45,6 +45,32 @@ body {
 	src: URL("../fonts/Geogrotesque/geogtq-lg.otf") format("opentype");
 }
 
+.btnCIQ {
+	background: linear-gradient(0deg, rgb(32,34,34) 0%, rgb(20,20,20) 100%);
+	box-shadow: inset 0 1px 25% #ffffff; 
+	box-shadow: 2px 2px 60% 0 #000000;
+	margin-top: 20px;
+	border: none;
+	font-family: 'Geogrotesque';
+	color :#cbcbcb;
+	font-size: 12px;
+	text-shadow: none;
+	height: 23px;
+	padding: 0 20px 0 20px;
+	margin-top: 62%;
+}
+
+.btnCIQ:hover, .btnCIQ:focus {
+	color: #07BCDE;
+	background: linear-gradient(0deg, rgb(44,46,46) 0%, rgb(32,34,34) 100%);
+	border: none;
+}
+
+.btnCIQ:active {
+	background-color: #F51717;
+	box-shadow: inset 0 2px 75% #000000; 
+	border: none;
+}
 
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'Geogrotesque';
