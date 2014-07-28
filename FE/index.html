@@ -48,6 +48,17 @@
       <!-- end of powerbar -->
   </script>
 
+  <script type="text/x-handlebars" id="components/search-bar">
+
+    <input {{action 'updateResults' on="keyUp"}} {{bind-attr value=value}} type="text" class="form-control" id="navbar-search2" placeholder="Tell me what you are looking for...">
+    </input>
+
+    {{#each user in users}}
+      <div> {{user.fullname}}</div>
+    {{/each}}
+
+  </script>
+
   <script type="text/x-handlebars">
     <div class="container-fluid">
       <div id="topbar" class="row">
@@ -124,13 +135,11 @@
 
 
 <script type="text/x-handlebars" data-template-name="index">
-    
+    <div class="pull-right"> {{search-bar}}</div>
 </script>
 
 
-
 <script type="text/x-handlebars" data-template-name="user">
-  
         <div class="col-md-16 col-md-offset-1">
           <div class="row">
             <h1 class="ciqred"> {{ fullname }}</h1>
@@ -231,7 +240,7 @@
   <script src="js/router.js"></script>
   <script src="js/models/user.js"></script>
   <script src="js/components/sidepanel.js"></script>
-  
+  <script src="js/components/searchbar.js"></script>
 
   <!-- to activate the test runner, add the "?test" query string parameter -->
   <script src="tests/runner.js"></script>
