@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="css/sidepanel.css">
   <link rel="stylesheet" href="css/toplayer.css">
   <link rel="stylesheet" href="css/user.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+  <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 </head>
 <body>
 
@@ -27,7 +29,18 @@
               <div class="tab-pane" id="library-r"><h3>Library</h3></div>
               <div class="tab-pane" id="favorites-r"><h3>Favorites</h3></div>
               <div class="tab-pane" id="contacts-r"><h3>Contacts</h3></div>
-              <div class="tab-pane" id="edge-r"><h3>Edge</h3></div>
+              <div class="tab-pane" id="edge-r"><h3>Edge</h3>
+                <div class="row">
+                  <label> Search # </label>
+                  <input id="search" type="text"></input>
+                  <label> (press Enter) </label>
+                </div>
+                <div class="row">
+                  <div id="tabs">
+                    <a href="#tabs1">Tweets</a>
+                    </div>
+                </div>  
+              </div>
             </div>
           </div>
           <div id="powerbar" class="col-xs-2"> <!-- required for floating -->
@@ -203,16 +216,22 @@
             <hr>
             <h3> Workspace History </h3>
             <div class = "row">
-              <div class = "col-md-6">
+              <div class = "col-md-4">
                <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive" >
               </div>
-              <div class = "col-md-6">
+              <div class = "col-md-4">
                       <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
               </div>
-              <div class = "col-md-6">
+              <div class = "col-md-4">
                     <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
               </div>
-              <div class = "col-md-6">
+              <div class = "col-md-4">
+                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
+              </div>
+              <div class = "col-md-4">
+                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
+              </div>
+              <div class = "col-md-4">
                     <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
               </div>
 
@@ -232,7 +251,7 @@
             </div>
           </div>
           <div class="col-md-8 " id="sharedStory2">
-            <div class = "col-md-24  storyCard">
+            <div class = "col-md-23 col-md-offset-1  storyCard">
             One story goes here
             </div>
           </div>
@@ -261,5 +280,21 @@
 
   <!-- to activate the test runner, add the "?test" query string parameter -->
   <script src="tests/runner.js"></script>
+  <script src="../twitter_widget/widget.js"></script>
+  <!--In-line styling for this because the CSS isn't working. -->
+  <style> 
+  #tabs{
+  border-color: #ff0000;
+  min-height: 500px;
+  background-color: #202222;
+
+  }
+
+  #tweet{
+    color: #808080;
+    background-color: #202222;
+  }
+
+  </style>
 </body>
 </html>
