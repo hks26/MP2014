@@ -1,0 +1,36 @@
+POST data is JSON-encoded (can easily be made URL-encoded)
+
+GET /user
+-Gets the information associated with the user with the given userid.
+Parameters: userid
+
+GET /following
+-Gets the users that the given user is following.
+Parameters: userid
+
+GET /timeline
+-Gets all comments on a user's articles as well as all status updates and shared articles by the users this user is following.
+Parameters: userid
+
+GET /activity
+-Gets all comments, shares and status updates by the given user.
+Parameters: userid
+
+GET /comment
+-Gets all the comments on a given article.
+Parameters: shareid
+
+POST /comment
+- Post a comment on the share with the given shareid, by the user with the given userid.
+Parameters: userid, shareid
+POST data: {text : text of the comment}
+
+POST /share
+-Share an article.
+Parameters: userid
+POST data: {link : the shared article url}
+
+POST /status
+-Post a status update.
+Parameters: userid
+POST data: {text: text of the status update}

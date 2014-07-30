@@ -2,28 +2,33 @@
 
 
 /*do you feel like typing out Sequelize.STRING every time? neither do I*/
-var _STR = 
+var _STR =  Sequelize.STRING
 var _DATE = Sequelize.DATE
-var _INT =
-var _BINT =
-var _TEXT =
+var _INT =  Sequelize.INT
+var _BINT =  Sequelize.BIGINT
+var _TEXT =  Sequelize.TEXT
 
+exports = function(sequelize, DataTypes) {
 /*Models*/
 var User = sequelize.define('User', {
-  name : {type: _STR}
-})
+  first_name : {type: _STR}
+  last_name : {type: _STR}
+  email : {type: _STR}
+});
 
-type, primarykey, unique, allownull, defaultvalue
+//type, primarykey, unique, allownull, defaultvalue
 
 var Layout = sequelize.define('Layout', {
-  //layout : {type: Sequelize.BLOB}
+  layout : {type: Sequelize.BLOB}
 })
 
 var Stream =  sequelize.define('Stream', {
-
+  streamName : {type: _STR}
 })
 
 var Article =  sequelize.define('Article', {
+  headline : {type: _STR}
+  source : {type: _STR}
   link : {type: _STR}
 })
 var SharedArticle = sequelize.define('SharedArticle', {
@@ -42,6 +47,7 @@ var CommentMetadata = sequelize.define('Layout', {})
 }
 
 /*Associations*/
+/*HOW TO USE: if I say Stream.hasMany(Article, {as : 'Feed'}), Sequelize generates the method Stream.getFeed that will get me all the articles associated with a Stream.*/
 /*TODO: Do we need a Following table? I feel like saying User.hasMany(User, {as :'Following'}), User.hasMany(User, {as : 'Followee'}) will create a row for every follower-followee pair in User and thus duplicate each user's data (user's following + user's followees) times*/
 User.hasMany(Following, {as : 'Followees'}) //user can be followed by many
 User.hasMany(Following, {as : 'Followers'}) //user can follow many //is this legal in sequelize?
@@ -65,3 +71,5 @@ Comment.belongsTo(SharedArticle) //comment belongs to a sharedarticle
 
 Comment.hasOne(CommentMetadata, {as: 'Metadata'}) //comment has metadata
 CommentMetadata.belongsTo(Comment) //comment metadata associated with one comment
+
+}

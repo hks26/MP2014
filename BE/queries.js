@@ -8,38 +8,120 @@ edgeDB.open();
  * */
 
 /*Private helper function to simply return all rows in the result set, optionally binding the parameters.*/
-function getResultSet(resp, query, params)
+function getResultSet(query, params, callback)
 {
-  edgeDB.executeQuery(query, params, function(error, rows){
-    if(error)
-      console.log(error);
-    result = error ? error : rows;
-    resp.send(result);
-  });
+  edgeDB.executeQuery(query, params, callback);
 }
 
 /*Helper function for your UPDATE or INSERT statements.*/
-function doUpdate(resp, statement, params)
+function doUpdate(statement, params, callback)
 {
-  edgeDB.executeUpdate(statement, params, function(error) {
-    if(error)
-      console.log(error);
-    result = error ? error : {message: "Success"};
-    resp.send(result);
-    }); 
+  edgeDB.executeUpdate(statement, params, callback);
 }
+
 
 /*Queries go under here,*/
 
-var allUsers = function(resp){
-  getResultSet(resp, "SELECT * FROM User;");
+function getUser(userid, callback) {
+  getResultSet("SELECT user_id, first_name, last_name, primary_email, secondary_email, job_title, address, image_url, organization_name AS organization FROM User JOIN Organization ON User.organization_id = Organization.organization_id WHERE user_id = ? ;", [userid], callback);
+}
+
+function getFollowedUsers(followeeid, callback)
+{
+  getResultSet("SELECT * FROM Following WHERE followee_id = ? ;", [followeeid], callback);
+}
+
+function getSharedArticlesStream(userid, callback)
+{
+  getResultSet("SELECT share_id, user_id, link, timestamp FROM Following JOIN Share ON Following.follower_id = Share.user_id WHERE Followee.user_id = ?", [userid], callback); 
+}
+
+//we can do this much less messily (and concurrently) with promises. just a thought
+function getTimeline(userid, callback)
+{
+    getResultSet("SELECT * FROM Comment JOIN Share ON Comment.share_id = Share.share_id WHERE Share.user_id = ?", [userid], function(cerror, comments)
+      {
+        if(cerror) console.log(cerror); 
+        else getResultSet("SELECT * FROM StatusUpdate JOIN Following ON StatusUpdate.user_id = Following.followee_id WHERE Following.follower_id = ?", [userid], function(sterror, statuses)
+          {
+            if(sterror) console.log(sterror); 
+            else getResultSet("SELECT * FROM Share JOIN Following ON Share.user_id = Following.followee_id WHERE Following.follower_id = ?", [userid], function(sherror, shares)
+              {
+                 if(sherror) console.log(sherror); 
+                 else {
+                 var activites = comments.append(statuses).append(shares).sort(function(a1, a2){return (a1.timestamp<a2.timestamp)?-1:1;});
+                 callback(sherror, activities);
+                 }
+              })
+          })
+      })
+}
+
+//TODO: will order by work in SQLite if they don't have a date format?
+function getActivity(userid, callback)
+{
+  getResultSet("SELECT * FROM Comment WHERE user_id = ?", [userid], function(cerror, comments)
+      {
+         if(cerror) console.log(cerror); 
+         else getResultSet("SELECT * FROM StatusUpdate WHERE user_id = ?", [userid], function(sterror, statuses)
+          {
+            if(sterror) console.log(sterror); 
+            else getResultSet("SELECT * FROM Share WHERE user_id = ?", [userid], function(sherror, shares)
+              {
+                 if(sherror) console.log(sherror); 
+                 else{
+                 var activites = comments.append(statuses).append(shares).sort(function(a1, a2){return (a1.timestamp<a2.timestamp)?-1:1;});
+                 callback(sherror, activities);
+                 }
+              })
+          })
+      })
+}
+
+function getComments(shareid, callback)
+{
+  getResultSet("SELECT * FROM Comment WHERE share_id = ? ORDER BY timestamp DESC;", [shareid], callback);
+}
+
+function addFollowing(followeeid, followerid, callback)
+{
+  doUpdate("INSERT INTO Following(followee_id, follower_id) (?, ?)", [followeeid, followerid]);
+}
+
+function postComment(userid, comment, share_id, callback)
+{
+   doUpdate("INSERT INTO Comment(user_id, comment_body, timestamp, share_id) (?,?,?,?)",
+      [userid, comment, new Date().getTime(), articleid],
+      callback);
+}
+
+function postStatusUpdate(userid, statustext, callback)
+{
+   doUpdate("INSERT INTO StatusUpdate(user_id, timestamp, status_text) (?, ?, ?)",
+         [userid, new Date().getTime(), comment],
+         callback);
+}
+
+function shareArticle(userid, link, callback)
+{
+  doUpdate("INSERT INTO Share(user_id, link, timestamp) (?, ?, ?)", 
+      [userid, link, new Date().getTime()],
+      callback);
+}
+
+/*but above here*/
+var querylist = {
+  getUser : getUser,
+  getFollowedUsers : getFollowedUsers,
+  getTimeline : getTimeline,
+  getActivity : getActivity,
+  getComments : getComments,
+  addFollowing : addFollowing,
+  postComment : postComment,
+  postStatusUpdate : postStatusUpdate,
+  shareArticle : shareArticle
 };
 
-var getUser = function(resp, userid) {
-  getResultSet(resp, "SELECT * FROM User WHERE user_id = ? ;", [userid]);
-}
-/*but above here*/
-var querylist = {allUsers : allUsers,
-  getUser : getUser};
-
 module.exports = querylist;
+
+
