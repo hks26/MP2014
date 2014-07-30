@@ -50,8 +50,10 @@
 
   <script type="text/x-handlebars" id="components/search-bar">
 
-    <input {{action 'updateResults' on="keyUp"}} {{bind-attr value=value}} type="text" class="form-control" id="navbar-search2" placeholder="Tell me what you are looking for...">
+    <input {{action 'updateResults' on="keyUp"}} {{bind-attr value=text_val}} type="text" class="form-control" id="navbar-search2" placeholder="Tell me what you are looking for...">
     </input>
+
+    {{input type="text" class="form-control" id="navbar-search2" value=text_val}}
 
     {{#each user in users}}
       <div> {{user.fullname}}</div>
