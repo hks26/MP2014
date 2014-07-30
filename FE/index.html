@@ -11,12 +11,13 @@
   <link rel="stylesheet" href="css/sidepanel.css">
   <link rel="stylesheet" href="css/toplayer.css">
   <link rel="stylesheet" href="css/user.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 </head>
 <body>
 
   <script type="text/x-handlebars" id="components/side-panel">
     <!-- power bar -->
-      <div id="sidepanel" {{bind-attr class="isOpen:opened:closed"}}>
+      <div id="sidepanel" {{bind-attr class="isOpen:opened:closed"}} style="margin-bottom=0px;">
         <div class="row">
           <div class="col-xs-22">
               <!-- Tab panes -->
@@ -27,7 +28,36 @@
               <div class="tab-pane" id="library-r"><h3>Library</h3></div>
               <div class="tab-pane" id="favorites-r"><h3>Favorites</h3></div>
               <div class="tab-pane" id="contacts-r"><h3>Contacts</h3></div>
-              <div class="tab-pane" id="edge-r"><h3>Edge</h3></div>
+              <div class="tab-pane" id="edge-r"><h3>Edge</h3>
+                <div class = "edgeContent">
+                  <div class="row edgeItem" id="edgeNews"> 
+                    <h4> NEWS </h4>
+                    <div class="row newsItem" style="height:50px;"> <!--Each item is populated by a story from Acquire Media--> 
+
+                    </div>
+                  </div>
+                  <div class="row edgeItem" id="edgeSocial">
+                     <h4> SOCIAL MEDIA </h4>
+                     <div class = "row">
+                        <ul class="nav nav-pill row">
+                          <li class="col-md-8"> <a href="#tweet" role="tab" toggle="tab"> Tweets</a> </li>
+                          <li class="col-md-8"> <a href="#sentiment" role="tab" toggle="tab"> Sentiment</a> </li>
+                        </ul>
+                        <div id="tweetContent" class="tab-content row">
+                          <div class="tab-pane fade in active col-md-20 col-md-offset-1" id="tweet"> 
+                            Test1 
+                          </div>
+                          <div class="tab-pane fade" id="sentiment">
+                            Test2
+                          </div>
+                        </div>
+                     </div>
+                   </div>
+                   <div class="row edgeItem" id="edgeFollowing">
+                      <h4> FOLLOWING </h4>
+                   </div>
+                </div>
+              </div>
             </div>
           </div>
           <div id="powerbar" class="col-xs-2"> <!-- required for floating -->
@@ -40,7 +70,7 @@
               <li id="CIQfavorites"><a href="#favorites-r" data-toggle="tab"></a></li>
               <li id="CIQcontacts"><a href="#contacts-r" data-toggle="tab"></a></li>
               <li id="CIQedge"><a href="#edge-r" data-toggle="tab"></a></li>
-              <li {{ action "toggleSidepanel" }} style="min-height:400px"> </li>
+              <li {{ action "toggleSidepanel" }} style="min-height:441px;"> </li>
             </ul>
           </div>
         </>
@@ -67,7 +97,7 @@
         <nav class="navbar navbar-inverse" role="navigation">
         <div class="container-fluid">
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" >
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
@@ -77,16 +107,16 @@
           </div>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+
               <li class="dropdown" id="wtf1">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">SEARCH ALL <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">One more separated link</a></li>
+				li><a href="#">SEARCH ALL</a></li>
+                  <li><a href="#">PROFILES</a></li>
+                  <li><a href="#">WORKSPACES</a></li>
+                  <li><a href="#">PEOPLE</a></li>
+				<li><a href="#">CONTENT</a></li>
+
                 </ul>
               </li>
             </ul>
@@ -98,9 +128,10 @@
               </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Settings</a></li>
-            <li><a href="#">Help</a></li>
-              <li><a href="#">Log out</a></li>
+              <li><br><img src="https://cdn4.iconfinder.com/data/icons/Primo_Icons/PNG/128x128/gear.png" height=20px; width=20px ></a></li>
+            <li><br><img src= "http://etc-mysitemyway.s3.amazonaws.com/icons/legacy-previews/icons/glossy-silver-icons-alphanumeric/071082-glossy-silver-icon-alphanumeric-question-mark1-ps.png" height=20px; width=20px></li>
+        <li><a href ="index2.html"> Log Out</a> </li>
+			    <li> <img src="./images/avatar-default.png" height=35px; width=35px; float: right; style="margin-top:10px;" ></a></li>
             </ul>
           </div>
         </div>
@@ -142,15 +173,30 @@
 
 
 <script type="text/x-handlebars" data-template-name="user">
+<<<<<<< HEAD
         <div class="col-md-16 col-md-offset-1">
+=======
+  <div class="container-fluid">
+        <div class="col-md-21 col-md-offset-2">
+>>>>>>> 838822b395a06a7755e100e0c10259e89c515918
           <div class="row">
+            <div class="col-md-2"> 
+			<img {{bind-attr src=image}} class="img-rounded img-responsive" style="margin-top:5px">
+            </div>
+           
+            <div class="col-md-15">
             <h1 class="ciqred"> {{ fullname }}</h1>
-          </div>
+            <h3> {{ job_title }} at {{ organization }}</h3>
+            </div>
+	
+            <div class="col-md-3 col-md-offset-4 pull-right" style="margin-top:65px; margin-right:-5px;">
+                <button type="button" class="btn btn-sm btnCIQ pull-right" id="btnSubscribe">
+                <span class="glyphicon glyphicon-plus"> </span> SUBSCRIBE
+                </button>
+            </div>
+            </div>
           <div class ="row">
-          <h3> {{ job_title }} at {{ organization }}</h3>
-          <hr> 
-          </div>
-          <div class ="row">
+          <hr>
             <div class ="col-md-12">
             Phone: 
             <div class="pull-right">   {{ phone_number }}
@@ -196,43 +242,57 @@
             <hr>
             <h3> Workspace History </h3>
             <div class = "row">
-              <div class = "col-md-6">
-               <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace">
+              <div class = "col-md-4">
+               <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive" >
               </div>
-              <div class = "col-md-6">
-                      <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace">
+              <div class = "col-md-4">
+                      <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
               </div>
-              <div class = "col-md-6">
-                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace">
+              <div class = "col-md-4">
+                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
               </div>
-              <div class = "col-md-6">
-                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace">
+              <div class = "col-md-4">
+                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
               </div>
+              <div class = "col-md-4">
+                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
+              </div>
+              <div class = "col-md-4">
+                    <img src="./Images/SampleWorkspaceHistory1.png" alt="Workspace" class="img-rounded img-responsive">
+              </div>
+
             </div>
           </div>
         </div>
         <hr>
         <div class="row">
           <div class="col-md-24">
-            My Shared Articles
+           <h3> My Shared Articles </h3>
           </div>
         </div>
         <div class="row"> 
-          <div class="col-md-7 well well-sm">
+          <div class="col-md-8 " id="sharedStory1">
+            <div class = "col-md-23  storyCard">
             One story goes here
+            </div>
           </div>
-          <div class="col-md-7 offset1 well well-sm">
+          <div class="col-md-8 " id="sharedStory2">
+            <div class = "col-md-23 col-md-offset-1  storyCard">
             One story goes here
+            </div>
           </div>
-          <div class="col-md-7 offset1 well well-sm">
+          <div class="col-md-8" id="sharedStory3">
+            <div class = "col-md-23 col-md-offset-1 storyCard">
             One story goes here
+            </div>
           </div>
         </div>
       </div>  
+      </div>
       
   </script>
-
   <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
   <script src="bootstrap/js/bootstrap.js"></script>
   <script src="js/libs/ember-1.5.1.js"></script>  
@@ -246,5 +306,21 @@
 
   <!-- to activate the test runner, add the "?test" query string parameter -->
   <script src="tests/runner.js"></script>
+  <script src="../twitter_widget/widget.js"></script>
+  <!--In-line styling for this because the CSS isn't working. -->
+  <style> 
+  #tabs{
+  border-color: #ff0000;
+  min-height: 500px;
+  background-color: #202222;
+
+  }
+
+  #tweet{
+    color: #808080;
+    background-color: #202222;
+  }
+
+  </style>
 </body>
 </html>

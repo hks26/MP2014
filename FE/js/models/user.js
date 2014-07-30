@@ -9,7 +9,8 @@ App.User = DS.Model.extend({
   address: DS.attr('string'),
   fullname: function() {
     return this.get('first_name') + ' ' + this.get('last_name');
-  }.property('first_name', 'last_name')
+  }.property('first_name', 'last_name'),
+image: DS.attr('string')
 
 });
 
@@ -23,7 +24,8 @@ App.User.FIXTURES = [
     secondary_email: "frankxie@spcapitaliq.com",
     job_title: "Caffeine Baron",
     organization: "The Franky Boys",
-    address: "Brooklyn"
+    address: "Brooklyn",
+image: "http://www.thestudioagency.co.uk/wpcf7_uploads/2013/04/Callum-Male-Model-The-Studio-Agency-Headshot.jpg"
 
   },
   {
@@ -35,8 +37,10 @@ App.User.FIXTURES = [
     secondary_email: "francesco@spcapitaliq.com",
     job_title: "Architecture Intern",
     organization: "CAPIQ",
-    address: "Corso Venezia 42"
+    address: "Corso Venezia 42",
+image: "http://austinama.org/wp-content/110125a-4309web-150x150.jpg"
 
   }
 
 ]
+
