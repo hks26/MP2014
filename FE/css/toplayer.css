@@ -4,6 +4,9 @@ color: #07BCDE;
 .ciqred {
 color: #E51937;
 }
+.edgeContent {
+	margin-left: 10px;
+}
 .inputTags{
 background-color: #CBCBCB;
 }
@@ -57,7 +60,6 @@ body {
 	text-shadow: none;
 	height: 23px;
 	padding: 0 20px 0 20px;
-	margin-top: 62%;
 }
 
 .btnCIQ:hover, .btnCIQ:focus {
@@ -76,7 +78,7 @@ h1,h2,h3,h4,h5,h6 {
 	font-family: 'Geogrotesque';
 }
 
-.tab-pane h3 {
+.tab-pane h3, .tab-pane h4 {
 	font-family: 'GeogrotesqueL';
 }
 
@@ -86,12 +88,6 @@ html, body, .container-fluid, .full, .ember-view {
 
 .dropdown {
 	font-family: 'Geogrotesque';
-}
-
-#wtf1{
-	background: linear-gradient(180deg, rgb(37, 39, 39,)0%, rgb(45, 47, 47) 100%);
-	border: #494848, 1px;
-	border-radius: 3px;
 }
 
 #nav-logo {
@@ -137,6 +133,27 @@ html, body, .container-fluid, .full, .ember-view {
 	box-shadow: -1px 0 rgba(0,0,0,.75),inset 1px 0 rgba(255,255,255,.1),inset -1px 0 rgba(255,255,255,.1);
 }
 
+.nav-pill li a {
+	background: linear-gradient(0deg, rgb(32,34,34) 0%, rgb(20,20,20) 100%);
+	box-shadow: inset 25% 0px 0px 0 #ffffff; 
+	box-shadow: 60% 0 60% 60% #000000;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	border: none;
+	font-family: 'Geogrotesque';
+	color :#cbcbcb;
+	font-size: 12px;
+	text-shadow: none;
+	height: 23px;
+	padding: 0 20px 0 20px;
+}
+
+.nav-pill li a:hover, .nav-pill li a:focus {
+	color: #07BCDE;
+	background: linear-gradient(0deg, rgb(44,46,46) 0%, rgb(32,34,34) 100%);
+	border: none;
+}
+
 #powerbar li > a{
 	border: none;
 }
@@ -161,7 +178,33 @@ html, body, .container-fluid, .full, .ember-view {
 	background: transparent;
 	background-image: linear-gradient(to right,rgba(255,255,255,0) 0%,rgba(255,255,255,.2) 50%,rgba(255,255,255,0) 100%);
 }
+#edgeNews{
+	margin-top: 0px;
+	height: 180px;
+}
+#edgeNews::after{
+	position: absolute;
+	content: "";
+	width: 350px;
+	height: 1px;
+	background: transparent;
+	background-image: linear-gradient(to right,rgba(255,255,255,0) 0%,rgba(255,255,255,.2) 50%,rgba(255,255,255,0) 100%);
+}
 
+#edgeSocial::after{
+	position: absolute;
+	content: "";
+	margin-top: 15px;
+	width: 350px;
+	height: 1px;
+	background: transparent;
+	background-image: linear-gradient(to right,rgba(255,255,255,0) 0%,rgba(255,255,255,.2) 50%,rgba(255,255,255,0) 100%);
+}
+
+.edgeItem {
+	margin: 30px 0 30px 0;
+	height: 200px;
+}
 
 #CIQnotifications {
 	background: url("../Images/mainSprite.png") no-repeat 0 -100px;

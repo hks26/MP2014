@@ -4351,6 +4351,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left;
   }
 }
+
+::-webkit-scrollbar { 
+    display: none; 
+}
 .navbar-collapse {
   overflow-x: visible;
   padding-right: 7px;
