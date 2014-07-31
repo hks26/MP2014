@@ -22,7 +22,7 @@ function doUpdate(statement, params, callback)
 
 /*Queries go under here,*/
 
-// I am dyslexic to Javascript so bare with me - Harsh
+// I am dyslexic to Javascript so bear with me - Harsh
 function validateUser(user_id, password, callback) {
   getResultSet("SELECT * FROM Login WHERE Login.user_id = ? and Login.password = ?", [user_id], [password], callback);
 }
