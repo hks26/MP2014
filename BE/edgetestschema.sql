@@ -1,3 +1,8 @@
+CREATE TABLE IF NOT EXISTS `Login` (
+  user_id INTEGER PRIMARY KEY,
+  password TEXT NOT NULL,
+  );
+
 CREATE TABLE IF NOT EXISTS `User` (
   user_id INTEGER PRIMARY KEY AUTOINCREMENT,
   first_name TEXT NOT NULL,
@@ -8,6 +13,7 @@ CREATE TABLE IF NOT EXISTS `User` (
   address TEXT,
   image_url TEXT,
   organization_id INTEGER NOT NULL,
+  FOREIGN KEY(user_id) REFERENCES Login(user_id)
   FOREIGN KEY(organization_id) REFERENCES Organization(organization_id)
   );
 

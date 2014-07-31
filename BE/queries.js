@@ -22,6 +22,11 @@ function doUpdate(statement, params, callback)
 
 /*Queries go under here,*/
 
+// I am dyslexic to Javascript so bare with me - Harsh
+function validateUser(user_id, password, callback) {
+  getResultSet("SELECT * FROM Login WHERE Login.user_id = ? and Login.password = ?", [user_id], [password], callback);
+}
+
 function getUser(userid, callback) {
   getResultSet("SELECT user_id, first_name, last_name, primary_email, secondary_email, job_title, address, image_url, organization_name AS organization FROM User JOIN Organization ON User.organization_id = Organization.organization_id WHERE user_id = ? ;", [userid], callback);
 }
