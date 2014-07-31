@@ -1,6 +1,6 @@
 var edgeDB = require('./database.js');
 edgeDB.open();
-
+var printf = require('printf');
 /*Want to add a new endpoint? Here's what you do:
  * 1) Open edgeserver.js and define a new endpoint. You can define a GET, POST, PUT or DELETE endpoint using app.[get | post | put | delete](<url>, <callback>). The URL is simply the URL you stick after localhost:3000 to reach the endpoint, and the callback takes the request and response objects as arguments and lets you read the parameters of the request and send a response.
  * 2) Since this is pretty much just a wrapper for the database, we stick a query function in queries.js and simply call said method from our new endpoint in edgeserver.js. Make sure to export it!
@@ -26,9 +26,13 @@ function getUser(userid, callback) {
   getResultSet("SELECT user_id, first_name, last_name, primary_email, secondary_email, job_title, address, image_url, organization_name AS organization FROM User JOIN Organization ON User.organization_id = Organization.organization_id WHERE user_id = ? ;", [userid], callback);
 }
 
-function getFollowedUsers(followeeid, callback)
+function getNews(ticker, callback){
+  getResultSet("SELECT * FROM News JOIN CompanyTicker ON News.company_id = CompanyTicker.company_id WHERE CompanyTicker.ticker = ?", [ticker], callback);
+}
+
+function getFollowedUsers(followerid, callback)
 {
-  getResultSet("SELECT * FROM Following WHERE followee_id = ? ;", [followeeid], callback);
+  getResultSet("SELECT followee_id FROM Following WHERE follower_id = ? ;", [followerid], callback);
 }
 
 function getSharedArticlesStream(userid, callback)
@@ -39,17 +43,17 @@ function getSharedArticlesStream(userid, callback)
 //we can do this much less messily (and concurrently) with promises. just a thought
 function getTimeline(userid, callback)
 {
-    getResultSet("SELECT * FROM Comment JOIN Share ON Comment.share_id = Share.share_id WHERE Share.user_id = ?", [userid], function(cerror, comments)
+    getResultSet("SELECT Comment.*, 'comment' AS activitytype FROM Comment JOIN Share ON Comment.share_id = Share.share_id WHERE Share.user_id = ?", [userid], function(cerror, comments)
       {
         if(cerror) console.log(cerror); 
-        else getResultSet("SELECT * FROM StatusUpdate JOIN Following ON StatusUpdate.user_id = Following.followee_id WHERE Following.follower_id = ?", [userid], function(sterror, statuses)
+        else getResultSet("SELECT StatusUpdate.*, 'status' AS activitytype FROM StatusUpdate JOIN Following ON StatusUpdate.user_id = Following.followee_id WHERE Following.follower_id = ?", [userid], function(sterror, statuses)
           {
             if(sterror) console.log(sterror); 
-            else getResultSet("SELECT * FROM Share JOIN Following ON Share.user_id = Following.followee_id WHERE Following.follower_id = ?", [userid], function(sherror, shares)
+            else getResultSet("SELECT Share.*, 'share' AS activitytype FROM Share JOIN Following ON Share.user_id = Following.followee_id WHERE Following.follower_id = ?", [userid], function(sherror, shares)
               {
                  if(sherror) console.log(sherror); 
                  else {
-                 var activites = comments.append(statuses).append(shares).sort(function(a1, a2){return (a1.timestamp<a2.timestamp)?-1:1;});
+                 var activities = comments.concat(statuses).concat(shares).sort(function(a1, a2){return (a1.timestamp<a2.timestamp)?-1:1;});
                  callback(sherror, activities);
                  }
               })
@@ -60,17 +64,18 @@ function getTimeline(userid, callback)
 //TODO: will order by work in SQLite if they don't have a date format?
 function getActivity(userid, callback)
 {
-  getResultSet("SELECT * FROM Comment WHERE user_id = ?", [userid], function(cerror, comments)
+  getResultSet("SELECT Comment.*, 'comment' AS activitytype  FROM Comment WHERE user_id = ?", [userid], function(cerror, comments)
       {
          if(cerror) console.log(cerror); 
-         else getResultSet("SELECT * FROM StatusUpdate WHERE user_id = ?", [userid], function(sterror, statuses)
+         else getResultSet("SELECT StatusUpdate.*, 'status' AS activitytype FROM StatusUpdate WHERE user_id = ?", [userid], function(sterror, statuses)
           {
             if(sterror) console.log(sterror); 
-            else getResultSet("SELECT * FROM Share WHERE user_id = ?", [userid], function(sherror, shares)
+            else getResultSet("SELECT Share.*, 'share' AS activitytype FROM Share WHERE user_id = ?", [userid], function(sherror, shares)
               {
                  if(sherror) console.log(sherror); 
                  else{
-                 var activites = comments.append(statuses).append(shares).sort(function(a1, a2){return (a1.timestamp<a2.timestamp)?-1:1;});
+                 var activities = comments.concat(statuses).concat(shares).sort(function(a1, a2){return (a1.timestamp<a2.timestamp)?-1:1;});
+                 console.log(JSON.stringify(activities));
                  callback(sherror, activities);
                  }
               })
@@ -90,23 +95,29 @@ function addFollowing(followeeid, followerid, callback)
 
 function postComment(userid, comment, share_id, callback)
 {
-   doUpdate("INSERT INTO Comment(user_id, comment_body, timestamp, share_id) (?,?,?,?)",
-      [userid, comment, new Date().getTime(), articleid],
+   doUpdate("INSERT INTO Comment(user_id, comment_body, timestamp, share_id) VALUES (?,?,?,?)",
+      [userid, comment, new Date().getTime().toISOString(), share_id],
       callback);
 }
 
 function postStatusUpdate(userid, statustext, callback)
 {
-   doUpdate("INSERT INTO StatusUpdate(user_id, timestamp, status_text) (?, ?, ?)",
-         [userid, new Date().getTime(), comment],
+   doUpdate("INSERT INTO StatusUpdate(user_id, timestamp, status_text)VALUES (?, ?, ?)",
+         [userid, edgeDateFormat(new Date()), statustext],
          callback);
 }
 
 function shareArticle(userid, link, callback)
 {
-  doUpdate("INSERT INTO Share(user_id, link, timestamp) (?, ?, ?)", 
-      [userid, link, new Date().getTime()],
+  doUpdate("INSERT INTO Share(user_id, link, timestamp) VALUES (?, ?, ?)", 
+      [userid, link, edgeDateFormat(new Date())],
       callback);
+}
+
+//TODO: standardize date format
+function edgeDateFormat(date)
+{
+  return printf("%04d-%02d-%02dT%02d:%02d:%02d",date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
 }
 
 /*but above here*/

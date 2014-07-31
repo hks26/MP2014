@@ -18,7 +18,8 @@ var queries = require(QUERYBASEURL); //object containing all our queries
 var bodyParser = require('body-parser')
 
 var app = express();
-app.use( bodyParser.jsonencoded() ); // to support URL-encoded bodies
+//app.use( bodyParser.json() ); // to support URL-encoded bodies
+app.use( bodyParser.urlencoded() );
 /*
 var passport = require('passport')
   , LocalStrategy = require('passport-local').Strategy;
@@ -67,19 +68,19 @@ function notifyUsers(usersToUpdate, update){
     {conUser.socket.emit(update.eventName, update.data);}
 })}
 
-function sendResultSet(resp) { return function(error, rows){
+function sendResultSet(res) { return function(error, rows){
     if(error)
       console.log(error);
     result = error ? error : rows;
-    resp.send(result);
+    res.send(result);
   }
 }
 
-function sendUpdateResult(resp) { return function(error) {
+function sendUpdateResult(res) { return function(error) {
     if(error)
       console.log(error);
     result = error ? error : {message: "Success"};
-    resp.send(result);
+    res.end(result);
     }
 }
 
@@ -95,53 +96,58 @@ app.get('/', function(req, res)
     })
 
 app.get('/user', function(req, res){
-   console.log('Getting user ' + req.params.userid);  
-   queries.getUser(req.params.userid, sendResultSet(resp)); });
+   console.log('Getting user ' + req.query.userid);  
+   queries.getUser(req.query.userid, sendResultSet(res)); });
 
 //TODO: notify user?
 app.get('/following', function(req, res){
-  console.log('Getting followed users of ' + req.params.userid);
-  queries.getFollowedUsers(req.params.userid, sendResultSet(resp));
+  console.log('Getting followed users of ' + req.query.userid);
+  queries.getFollowedUsers(req.query.userid, sendResultSet(res));
     })
 
 app.get('/timeline', function(req, res){
-  console.log('Getting timeline of user ' + req.params.userid);
-  queries.getTimeline(req.params.userid, sendResultSet(resp));
+  console.log('Getting timeline of user ' + req.query.userid);
+  queries.getTimeline(req.query.userid, sendResultSet(res));
   }
 )
 
 app.get('/activity', function(req, res){
-  console.log('Getting activity by user ' + req.params.userid);
-  queries.getActivity(req.params.userid, req.params.link, sendResultSet(resp))
+  console.log('Getting activity by user ' + req.query.userid);
+  queries.getActivity(req.query.userid, sendResultSet(res))
   })
 
 app.get('/comment', function(req, res){
-  console.log('Getting comments on share with id ' + req.params.shareid);
-  queries.getComments(req.params.shareid, sendResultSet(resp));
+  console.log('Getting comments on share with id ' + req.query.shareid);
+  queries.getComments(req.query.shareid, sendResultSet(res));
   })
+
+app.get('/news', function(req, res){
+  console.log('Getting news about ' + req.query.ticker);
+  queries.getNews(req.query.ticker, sendResultSet(res));
+}
 
 app.post('/comment', function(req, res) 
     {
-  console.log('Posting comment ' + req.body.text + ' by user ' + req.params.userid);      
-      queries.shareArticle(req.params.userid, req.params.article, req.body.text, function (error){ 
+  console.log('Posting comment ' + req.body.text + ' by user ' + req.query.userid + ' on share ' + req.query.shareid);      
+     queries.postComment(req.query.userid, req.body.text, req.query.shareid, function (error){ 
         /*if(!error){
-          notifyFollowers(req.params.userid, {eventName: , eventData: })}
+          notifyFollowers(req.query.userid, {eventName: , eventData: })}
       */})
     })
 
 app.post('/share', function(req, res){
-  console.log('Uploading shared article ' + req.params.link +  ' shared by user ' + req.params.userid);
-  queries.shareArticle(req.params.userid, req.body.text, function(error){
+  console.log('Uploading shared article ' + req.query.link +  ' shared by user ' + req.query.userid);
+  queries.shareArticle(req.query.userid, req.query.link, function(error){
       /*if(!error){
-        notifyFollowers(req.params.userid, {eventName: , eventData: })}*/
+        notifyFollowers(req.query.userid, {eventName: , eventData: })}*/
   })
 })
 
 app.post('/status', function(req, res){
-  console.log('Posting status ' + req.body.text + ' by user ' + req.params.userid);
-  queries.postStatusUpdate(req.params.userid, req.body.text, function(error){
+  console.log('Posting status ' + req.body.text + ' by user ' + req.query.userid);
+  queries.postStatusUpdate(req.query.userid, req.body.text, function(error){
       /*if(!error){
-        notifyFollowers(req.params.userid, {eventName: , eventData: })}
+        notifyFollowers(req.query.userid, {eventName: , eventData: })}
   */})
 })
 

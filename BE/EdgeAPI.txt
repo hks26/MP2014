@@ -1,24 +1,85 @@
-POST data is JSON-encoded (can easily be made URL-encoded)
+POST data is URL-encoded; the parameters are embedded in the URL string, just
+like GET requests. GET data is returned ---> AS AN ARRAY <--- of JSON
+objects with the properties stated in the return section. All dates
+are strings in the format YYYY-MM-DDTHH:MM:SS, (T being a literal).
 
 GET /user
 -Gets the information associated with the user with the given userid.
 Parameters: userid
+Return: 
+{
+  user_id: int
+  first_name: string
+  last_name: string
+  primary_email: string
+  secondary_email: string
+  job_title: string
+  address: string
+  image_url: string
+  organization: string
+}
 
 GET /following
 -Gets the users that the given user is following.
 Parameters: userid
+Return: 
+{
+  followee_id : string
+}
+
+
+NOTE: there are three kinds of activities: sharing, comments, and status
+updates. The next two methods below return a heterogenous array that may
+contain all three types of activities. Use the activitytype
+property to distinguish between them.
+
+{
+activitytype: "share"
+share_id : int
+user_id : int
+link : string
+timestamp : string
+}
+
+{
+activitytype: "comment"
+comment_id : int
+share_id : int
+user_id : int
+comment_body : string
+timestamp : string
+}
+
+{
+activitytype: "status"
+status_id: int
+user_id : int
+status_text : string
+timestamp : string
+}
 
 GET /timeline
--Gets all comments on a user's articles as well as all status updates and shared articles by the users this user is following.
+-Gets all comments on the given user's articles as well as all status updates
+and shared articles by the users the given user is following.
 Parameters: userid
+Return: see note above 
 
 GET /activity
 -Gets all comments, shares and status updates by the given user.
 Parameters: userid
+Return: see note above
 
 GET /comment
--Gets all the comments on a given article.
+-Gets all the comments on a given shared article.
 Parameters: shareid
+Return: 
+{ 
+comment_id : int
+share_id : int
+user_id : int
+comment_body : string
+timestamp : string
+}
 
 POST /comment
 - Post a comment on the share with the given shareid, by the user with the given userid.
