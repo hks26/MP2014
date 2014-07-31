@@ -1,11 +1,9 @@
-POST data is URL-encoded; the parameters are embedded in the URL string, just
-like GET requests. GET data is returned ---> AS AN ARRAY <--- of JSON
+POST data is URL-encoded. GET data is returned ---> AS AN ARRAY <--- of JSON
 objects with the properties stated in the return section. All dates
 are strings in the format YYYY-MM-DDTHH:MM:SS, (T being a literal).
 
-GET /user
+GET /user/:userid
 -Gets the information associated with the user with the given userid.
-Parameters: userid
 Return: 
 {
   user_id: int
@@ -19,7 +17,11 @@ Return:
   organization: string
 }
 
-GET /following
+GET /news/:ticker
+-Gets news articles about the company specified by the given company ticker.
+Parameters: ticker : string
+
+GET /following/:userid
 -Gets the users that the given user is following.
 Parameters: userid
 Return: 
@@ -58,22 +60,22 @@ status_text : string
 timestamp : string
 }
 
-GET /timeline
+GET /timeline/:userid
 -Gets all comments on the given user's articles as well as all status updates
 and shared articles by the users the given user is following.
 Parameters: userid
 Return: see note above 
 
-GET /activity
+GET /activity/:userid
 -Gets all comments, shares and status updates by the given user.
 Parameters: userid
 Return: see note above
 
-GET /comment
+GET /comments/:shareid
 -Gets all the comments on a given shared article.
-Parameters: shareid
+Parameters: shareid : share to get comments on
 Return: 
-{ 
+{
 comment_id : int
 share_id : int
 user_id : int
@@ -84,14 +86,18 @@ timestamp : string
 POST /comment
 - Post a comment on the share with the given shareid, by the user with the given userid.
 Parameters: userid, shareid
-POST data: {text : text of the comment}
+POST data: {text : text of the comment
+userid: user posting comment
+shareid: share to post comment to }
 
 POST /share
 -Share an article.
-Parameters: userid
-POST data: {link : the shared article url}
+POST data: { 
+userid : user sharing article
+link : the shared article url}
 
 POST /status
 -Post a status update.
-Parameters: userid
-POST data: {text: text of the status update}
+POST data: {
+userid : user posting status update
+text: text of the status update}
