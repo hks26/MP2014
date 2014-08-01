@@ -1,2 +1,5 @@
 *.swp
-
+*.un
+*~
+edgetestdb2.sqlite
+node_modules
