@@ -14,18 +14,21 @@ $.fn.enterKey = function (fnc) {
     })
 };
 
+/* Preload the tweets once */
 
-/* Get JSON from twitter using Ajax calls */
-$("#search").enterKey(function() {
+/* All subsequent twitter updates made every 70 seconds 
+ * 
+ * NOTE : Only 1 request / minute allowed
+ *
+ * */
+setInterval( function() {
 	var search = document.getElementById("search").value;
 		
 	$.ajax({
 		url: 'http://web.njit.edu/~hks26/twitter_widget/widget_proxy.php',
 		type: 'post',
-		data: {'search': document.getElementById("search").value},
 		success: function(data, status) {
-			var result = jQuery.parseJSON(data);
-			var tweets = result.statuses;
+			var tweets = jQuery.parseJSON(data);
 
 			var tab1 = document.getElementById('tabs1');
 			tab1.innerHTML = "";
@@ -38,6 +41,7 @@ $("#search").enterKey(function() {
 				
 				tab1.appendChild(newDiv);
 			}
+
 		}
 	});
-});
+}, 70000);
